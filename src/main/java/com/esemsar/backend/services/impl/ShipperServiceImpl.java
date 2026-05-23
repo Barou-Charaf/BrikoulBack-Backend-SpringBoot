@@ -45,8 +45,23 @@ public class ShipperServiceImpl implements ShipperService {
     @Transactional
     public ShipperProfileResponse updateMe(ShipperProfileRequest request) {
         ShipperProfile shipper = currentShipper();
-        shipper.setCompanyName(request.companyName());
-        shipper.setAddress(request.address());
+        User user = shipper.getUser();
+
+        if (hasText(request.firstName())) {
+            user.setFirstName(request.firstName());
+        }
+        if (hasText(request.lastName())) {
+            user.setLastName(request.lastName());
+        }
+        if (hasText(request.phone())) {
+            user.setPhone(request.phone());
+        }
+        if (request.companyName() != null) {
+            shipper.setCompanyName(request.companyName());
+        }
+        if (request.address() != null) {
+            shipper.setAddress(request.address());
+        }
         return shipperMapper.toResponse(shipperRepository.save(shipper));
     }
 
@@ -54,5 +69,9 @@ public class ShipperServiceImpl implements ShipperService {
     public ShipperProfileResponse getById(Long id) {
         return shipperMapper.toResponse(shipperRepository.findById(id)
             .orElseThrow(() -> new ResourceNotFoundException("Shipper profile not found")));
+    }
+
+    private boolean hasText(String value) {
+        return value != null && !value.isBlank();
     }
 }

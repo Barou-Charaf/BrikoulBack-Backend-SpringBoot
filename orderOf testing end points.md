@@ -125,7 +125,7 @@ What happens:
 
 ### 1.3 Verify Email
 
-Endpoint:
+Swagger/laptop endpoint:
 
 ```http
 GET /api/auth/verify-email?token=TOKEN_FROM_EMAIL
@@ -141,6 +141,32 @@ What happens:
 - Marks email as verified.
 
 If email sending is not working during local development, get the token from the `email_verification_token` table in MySQL.
+
+Mobile app endpoint:
+
+```http
+POST /api/auth/verify-email
+```
+
+Body:
+
+```json
+{
+  "token": "TOKEN_FROM_EMAIL_OR_DEEP_LINK"
+}
+```
+
+For mobile production, set the email verification link template before running the app:
+
+```powershell
+$env:APP_EMAIL_VERIFICATION_URL="brikoul://verify-email?token={token}"
+```
+
+Then the email opens the mobile app. The mobile app reads the token from the deep link and calls:
+
+```http
+POST /api/auth/verify-email
+```
 
 ### 1.4 Login Shipper
 
@@ -505,6 +531,9 @@ Body:
 
 ```json
 {
+  "firstName": "Ali",
+  "lastName": "Shipper",
+  "phone": "+212 600 111 111",
   "companyName": "Atlas Logistics",
   "address": "Casablanca, Morocco"
 }
@@ -1406,4 +1435,3 @@ Use this order when testing the whole platform:
 19. Review driver with shipper token.
 20. Review shipper with driver token.
 21. Check statistics as admin.
-

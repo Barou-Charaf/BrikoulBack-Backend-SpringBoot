@@ -87,6 +87,7 @@ com\esemsar\backend\entities\DriverProfile$DriverProfileBuilder.class
 com\esemsar\backend\websocket\WebSocketAuthChannelInterceptor.class
 com\esemsar\backend\controllers\ShipperController.class
 com\esemsar\backend\mappers\UserMapper.class
+com\esemsar\backend\config\TestDataSeeder.class
 com\esemsar\backend\entities\Truck$TruckBuilder.class
 com\esemsar\backend\mappers\DriverMapper.class
 com\esemsar\backend\controllers\OfferApplicationController.class
@@ -106,6 +107,7 @@ com\esemsar\backend\services\impl\NotificationServiceImpl.class
 com\esemsar\backend\exceptions\InvalidReviewException.class
 com\esemsar\backend\dtos\requests\ResetPasswordRequest.class
 com\esemsar\backend\enums\VehicleType.class
+com\esemsar\backend\config\TestDataSeeder$1.class
 com\esemsar\backend\controllers\ReviewController.class
 com\esemsar\backend\services\impl\PaymentServiceImpl.class
 com\esemsar\backend\dtos\responses\OfferApplicationResponse.class
@@ -168,5 +170,6 @@ com\esemsar\backend\repositories\PaymentRepository.class
 com\esemsar\backend\dtos\requests\RegisterRequest.class
 com\esemsar\backend\dtos\requests\UpdateProfileRequest.class
 com\esemsar\backend\dtos\responses\AiChatResponse.class
+com\esemsar\backend\dtos\requests\VerifyEmailRequest.class
 com\esemsar\backend\enums\Role.class
 com\esemsar\backend\repositories\UserRepository.class

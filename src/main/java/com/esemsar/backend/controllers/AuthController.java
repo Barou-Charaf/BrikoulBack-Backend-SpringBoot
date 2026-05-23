@@ -5,6 +5,7 @@ import com.esemsar.backend.dtos.requests.ForgotPasswordRequest;
 import com.esemsar.backend.dtos.requests.LoginRequest;
 import com.esemsar.backend.dtos.requests.RegisterRequest;
 import com.esemsar.backend.dtos.requests.ResetPasswordRequest;
+import com.esemsar.backend.dtos.requests.VerifyEmailRequest;
 import com.esemsar.backend.dtos.responses.AuthResponse;
 import com.esemsar.backend.dtos.responses.UserResponse;
 import com.esemsar.backend.services.AuthService;
@@ -37,6 +38,12 @@ public class AuthController {
     @GetMapping("/verify-email")
     public Map<String, String> verifyEmail(@RequestParam String token) {
         authService.verifyEmail(token);
+        return Map.of("message", "Email verified successfully");
+    }
+
+    @PostMapping("/verify-email")
+    public Map<String, String> verifyEmailFromMobile(@Valid @RequestBody VerifyEmailRequest request) {
+        authService.verifyEmail(request.token());
         return Map.of("message", "Email verified successfully");
     }
 

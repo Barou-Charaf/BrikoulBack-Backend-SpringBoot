@@ -5,6 +5,7 @@ C:\Users\charaf\Documents\Codex\2026-05-16\you-are-a-senior-java-spring\src\main
 C:\Users\charaf\Documents\Codex\2026-05-16\you-are-a-senior-java-spring\src\main\java\com\esemsar\backend\BrikoulBackApplication.java
 C:\Users\charaf\Documents\Codex\2026-05-16\you-are-a-senior-java-spring\src\main\java\com\esemsar\backend\config\OpenApiConfig.java
 C:\Users\charaf\Documents\Codex\2026-05-16\you-are-a-senior-java-spring\src\main\java\com\esemsar\backend\config\SecurityConfig.java
+C:\Users\charaf\Documents\Codex\2026-05-16\you-are-a-senior-java-spring\src\main\java\com\esemsar\backend\config\TestDataSeeder.java
 C:\Users\charaf\Documents\Codex\2026-05-16\you-are-a-senior-java-spring\src\main\java\com\esemsar\backend\config\WebSocketConfig.java
 C:\Users\charaf\Documents\Codex\2026-05-16\you-are-a-senior-java-spring\src\main\java\com\esemsar\backend\controllers\AdminDriverController.java
 C:\Users\charaf\Documents\Codex\2026-05-16\you-are-a-senior-java-spring\src\main\java\com\esemsar\backend\controllers\AdminOfferController.java
@@ -42,6 +43,7 @@ C:\Users\charaf\Documents\Codex\2026-05-16\you-are-a-senior-java-spring\src\main
 C:\Users\charaf\Documents\Codex\2026-05-16\you-are-a-senior-java-spring\src\main\java\com\esemsar\backend\dtos\requests\ShipperProfileRequest.java
 C:\Users\charaf\Documents\Codex\2026-05-16\you-are-a-senior-java-spring\src\main\java\com\esemsar\backend\dtos\requests\TruckRequest.java
 C:\Users\charaf\Documents\Codex\2026-05-16\you-are-a-senior-java-spring\src\main\java\com\esemsar\backend\dtos\requests\UpdateProfileRequest.java
+C:\Users\charaf\Documents\Codex\2026-05-16\you-are-a-senior-java-spring\src\main\java\com\esemsar\backend\dtos\requests\VerifyEmailRequest.java
 C:\Users\charaf\Documents\Codex\2026-05-16\you-are-a-senior-java-spring\src\main\java\com\esemsar\backend\dtos\responses\AdminStatisticsResponse.java
 C:\Users\charaf\Documents\Codex\2026-05-16\you-are-a-senior-java-spring\src\main\java\com\esemsar\backend\dtos\responses\AdminUserResponse.java
 C:\Users\charaf\Documents\Codex\2026-05-16\you-are-a-senior-java-spring\src\main\java\com\esemsar\backend\dtos\responses\AiChatResponse.java

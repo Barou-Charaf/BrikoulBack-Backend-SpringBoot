@@ -8,6 +8,7 @@ import com.esemsar.backend.repositories.UserRepository;
 import com.esemsar.backend.services.EmailVerificationService;
 import java.time.LocalDateTime;
 import java.util.UUID;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Slf4j
 public class EmailVerificationServiceImpl implements EmailVerificationService {
     private final EmailVerificationTokenRepository tokenRepository;
     private final UserRepository userRepository;
@@ -22,6 +24,9 @@ public class EmailVerificationServiceImpl implements EmailVerificationService {
 
     @Value("${app.frontend.url}")
     private String frontendUrl;
+
+    @Value("${app.email-verification.url-template}")
+    private String verificationUrlTemplate;
 
     public EmailVerificationServiceImpl(
         EmailVerificationTokenRepository tokenRepository,
@@ -42,11 +47,15 @@ public class EmailVerificationServiceImpl implements EmailVerificationService {
             .user(user)
             .build();
         tokenRepository.save(token);
+        log.info("Email verification token for {}: {}", user.getEmail(), token.getToken());
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(user.getEmail());
         message.setSubject("Verify your BrikoulBack account");
-        message.setText("Verify your email: " + frontendUrl + "/verify-email?token=" + token.getToken()
-            + "\nAPI verification endpoint: /api/auth/verify-email?token=" + token.getToken());
+        String verificationUrl = verificationUrlTemplate.replace("{token}", token.getToken());
+        message.setText("Verify your email: " + verificationUrl
+            + "\n\nIf you are testing from Swagger, call GET /api/auth/verify-email?token=" + token.getToken()
+            + "\nIf you are using the mobile app, the app can call POST /api/auth/verify-email with {\"token\":\""
+            + token.getToken() + "\"}.");
         mailSender.send(message);
     }
 
