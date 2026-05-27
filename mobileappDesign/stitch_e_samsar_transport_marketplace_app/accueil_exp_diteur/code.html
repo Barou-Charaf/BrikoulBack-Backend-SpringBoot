@@ -1,0 +1,292 @@
+<!DOCTYPE html><html class="light" lang="fr"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#181c1d",
+                        "on-secondary-fixed": "#2c1700",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#ffdcbc",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#82d3de",
+                        "secondary-container": "#fd9d1a",
+                        "surface": "#f7fafa",
+                        "on-surface-variant": "#3e494a",
+                        "on-secondary-container": "#663b00",
+                        "secondary": "#895100",
+                        "on-tertiary-container": "#ffd7bd",
+                        "primary-fixed": "#9ff0fb",
+                        "outline": "#6f797a",
+                        "inverse-on-surface": "#eef1f2",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#006d77",
+                        "surface-bright": "#f7fafa",
+                        "surface-tint": "#006972",
+                        "tertiary-fixed": "#ffdcc5",
+                        "tertiary-container": "#8e5426",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#82d3de",
+                        "secondary-fixed-dim": "#ffb86b",
+                        "surface-container-low": "#f1f4f4",
+                        "surface-container-high": "#e6e9e9",
+                        "surface-container": "#ebeeef",
+                        "inverse-surface": "#2d3132",
+                        "on-tertiary-fixed": "#301400",
+                        "surface-dim": "#d7dadb",
+                        "tertiary": "#713d10",
+                        "surface-variant": "#e0e3e3",
+                        "on-tertiary-fixed-variant": "#6d390c",
+                        "surface-container-highest": "#e0e3e3",
+                        "primary": "#00535b",
+                        "outline-variant": "#bec8ca",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#9becf7",
+                        "on-primary-fixed": "#001f23",
+                        "on-primary-fixed-variant": "#004f56",
+                        "background": "#f7fafa",
+                        "on-secondary-fixed-variant": "#683d00",
+                        "tertiary-fixed-dim": "#ffb783",
+                        "on-surface": "#181c1d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-padding": "1rem",
+                        "card-inner-padding": "1rem",
+                        "section-gap": "1.5rem",
+                        "stack-gap": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "currency-display": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "currency-display": ["20px", {"lineHeight": "24px", "fontWeight": "700"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-md": ["22px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        body {
+            background-color: #f7fafa;
+            color: #181c1d;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-dim dock-0 sticky top-0 z-50 shadow-sm border-b border-outline-variant dark:border-outline flex justify-between items-center px-container-padding py-3 w-full">
+<div class="flex items-center gap-3">
+<button class="hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors p-2 rounded-full active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed">menu</span>
+</button>
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary dark:text-primary-fixed">E-Samsar</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors p-2 rounded-full active:scale-95 transition-transform relative">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full border-2 border-surface"></span>
+</button>
+</div>
+</header>
+<main class="px-container-padding pt-6 space-y-section-gap">
+<!-- Welcome Section -->
+<section class="space-y-1">
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Tableau de bord</p>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Bonjour, SARA S.A.R.L</h2>
+</section>
+<!-- Stats Bento Grid -->
+<section class="grid grid-cols-2 gap-3">
+<div class="col-span-2 bg-primary-container text-on-primary-container p-4 rounded-xl flex items-center justify-between shadow-sm">
+<div>
+<p class="font-label-md text-label-md opacity-80">Offres actives</p>
+<p class="font-headline-lg text-headline-lg">05</p>
+</div>
+<span class="material-symbols-outlined text-[40px] opacity-20">local_shipping</span>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-4 rounded-xl shadow-sm">
+<p class="font-label-md text-label-md text-on-surface-variant">Terminées</p>
+<p class="font-headline-sm text-headline-sm text-on-surface">82</p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-4 rounded-xl shadow-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant">Note</p>
+<p class="font-headline-sm text-headline-sm text-on-surface">4.9/5</p>
+</div>
+</div>
+</section>
+<!-- Main Actions -->
+<section class="space-y-stack-gap">
+<button class="w-full bg-secondary-container text-on-secondary-container font-headline-sm text-headline-sm py-4 rounded-xl shadow-md flex items-center justify-center gap-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">add_circle</span>
+                Créer une offre
+            </button>
+<div class="grid grid-cols-2 gap-3">
+<button class="bg-surface-container-lowest border border-primary text-primary font-label-md text-label-md py-3 rounded-xl flex flex-col items-center gap-1 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">person_search</span>
+                    Chauffeurs
+                </button>
+<button class="bg-primary text-on-primary font-label-md text-label-md py-3 rounded-xl flex flex-col items-center gap-1 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">smart_toy</span>
+                    Recherche IA
+                </button>
+</div>
+</section>
+<!-- AI Assistant Banner -->
+<section class="relative overflow-hidden rounded-xl h-24 bg-primary-container">
+<img alt="Logistics AI" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-30" data-alt="A sophisticated digital visualization of data streams and neural networks in deep teal and electric blue tones. The image represents modern artificial intelligence and logistics optimization with a sleek, corporate tech aesthetic. Soft bokeh highlights create a sense of depth and high-end technological reliability." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAV0dKmtqK9BrrhoTj3GTUenPDLLnLPGo3K4n0s5hYV0rK9Otw-i4tjOkaexavNUBdbVJ53SFTBthbzJvprhUoZRnq_q8A8Ra0qoI0Rqhat5EPB4uU9kATLfMjc0tWrTOPpSv2lv247WAP-KK2isCzs4fbuXjhJpP5AVPfbwU7aHFyzrifWyt-9dVnLMdmX2CIyGy9uazcnprIVwP097rKLSKwF7oVUAJjlssdACiQy_MxtKE6QOJgIg5qw-I3R48H8bqXv9HLTFzXC">
+<div class="relative z-10 p-4 flex items-center justify-between h-full">
+<div class="text-white">
+<p class="font-headline-sm text-headline-sm">Assistant E-Samsar</p>
+<p class="font-body-md text-body-md opacity-90">Optimisez vos trajets aujourd'hui</p>
+</div>
+<span class="material-symbols-outlined text-white text-3xl">bolt</span>
+</div>
+</section>
+<!-- Recent Activity -->
+<section class="space-y-stack-gap">
+<div class="flex justify-between items-center">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Activités récentes</h3>
+<button class="text-primary font-label-md text-label-md">Voir tout</button>
+</div>
+<!-- Activity Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 shadow-sm space-y-3">
+<div class="flex justify-between items-start">
+<div class="space-y-1">
+<p class="font-headline-sm text-headline-sm">Transport de Marchandises</p>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+                            14 Oct, 09:00
+                        </p>
+</div>
+<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-tight">Chauffeurs notifiés</span>
+</div>
+<div class="flex items-center gap-3 py-2 border-y border-outline-variant/30">
+<div class="flex flex-col items-center gap-1">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<div class="w-0.5 h-6 border-l border-dashed border-outline"></div>
+<div class="w-2 h-2 rounded-full border-2 border-primary"></div>
+</div>
+<div class="flex-1 space-y-2">
+<p class="text-[12px] font-medium text-on-surface">Casablanca - Port de Tanger Med</p>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<p class="font-currency-display text-currency-display text-primary">2,400 MAD</p>
+<button class="text-primary font-label-md text-label-md flex items-center gap-1">Détails <span class="material-symbols-outlined text-sm">chevron_right</span></button>
+</div>
+</div>
+<!-- Activity Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 shadow-sm space-y-3">
+<div class="flex justify-between items-start">
+<div class="space-y-1">
+<p class="font-headline-sm text-headline-sm">Livraison Urbaine Express</p>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+                            13 Oct, 14:30
+                        </p>
+</div>
+<span class="bg-secondary-container/20 text-secondary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-tight">Assignée</span>
+</div>
+<div class="flex items-center gap-3 py-2 border-y border-outline-variant/30">
+<div class="flex flex-col items-center gap-1">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<div class="w-0.5 h-6 border-l border-dashed border-outline"></div>
+<div class="w-2 h-2 rounded-full border-2 border-primary"></div>
+</div>
+<div class="flex-1 space-y-2">
+<p class="text-[12px] font-medium text-on-surface">Rabat Ville - Temara</p>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<p class="font-currency-display text-currency-display text-primary">450 MAD</p>
+<button class="text-primary font-label-md text-label-md flex items-center gap-1">Détails <span class="material-symbols-outlined text-sm">chevron_right</span></button>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-2 py-3 bg-surface dark:bg-surface-container border-t border-outline-variant shadow-[0_-2px_8px_rgba(0,0,0,0.04)] z-50 rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed bg-primary-container/10 rounded-xl px-3 py-1 scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md">Accueil</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined">local_shipping</span>
+<span class="font-label-md text-label-md">Offres</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined">person_search</span>
+<span class="font-label-md text-label-md">Chauffeurs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined">assignment_turned_in</span>
+<span class="font-label-md text-label-md">Candidats</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-label-md text-label-md">Profil</span>
+</a>
+</nav>
+<!-- FAB for AI Assistant (Contextual) -->
+<button class="fixed right-6 bottom-24 w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary shadow-xl flex items-center justify-center active:scale-90 transition-transform z-40">
+<span class="material-symbols-outlined text-3xl">smart_toy</span>
+</button>
+<script>
+        // Subtle interaction for the active tab
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                document.querySelectorAll('nav a').forEach(l => {
+                    l.classList.remove('bg-primary-container/10', 'text-primary', 'dark:text-primary-fixed', 'rounded-xl', 'px-3', 'py-1', 'scale-90');
+                    l.classList.add('text-on-surface-variant', 'dark:text-outline');
+                });
+                link.classList.remove('text-on-surface-variant', 'dark:text-outline');
+                link.classList.add('bg-primary-container/10', 'text-primary', 'dark:text-primary-fixed', 'rounded-xl', 'px-3', 'py-1', 'scale-90');
+            });
+        });
+    </script>
+</body></html>

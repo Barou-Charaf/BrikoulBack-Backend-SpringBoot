@@ -14,6 +14,7 @@ public class TruckMapper {
             truck.getId(),
             truck.getBrand(),
             truck.getModel(),
+            truck.getImageUrl(),
             truck.getPlateNumber(),
             truck.getVehicleType(),
             truck.getCapacityKg(),

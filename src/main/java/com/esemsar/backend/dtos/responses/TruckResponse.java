@@ -7,6 +7,7 @@ public record TruckResponse(
     Long id,
     String brand,
     String model,
+    String imageUrl,
     String plateNumber,
     VehicleType vehicleType,
     Double capacityKg,

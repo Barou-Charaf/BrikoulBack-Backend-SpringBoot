@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#3e494a",
+                    "on-background": "#181c1d",
+                    "on-secondary-fixed": "#2c1700",
+                    "surface-container-highest": "#e0e3e3",
+                    "secondary-fixed-dim": "#ffb86b",
+                    "on-surface": "#181c1d",
+                    "primary-fixed": "#9ff0fb",
+                    "on-primary-fixed-variant": "#004f56",
+                    "on-primary": "#ffffff",
+                    "on-secondary-container": "#663b00",
+                    "surface-tint": "#006972",
+                    "surface-bright": "#f7fafa",
+                    "surface": "#f7fafa",
+                    "on-tertiary-container": "#ffd7bd",
+                    "inverse-surface": "#2d3132",
+                    "error-container": "#ffdad6",
+                    "secondary-container": "#fd9d1a",
+                    "on-tertiary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed-dim": "#82d3de",
+                    "tertiary-fixed": "#ffdcc5",
+                    "tertiary-container": "#8e5426",
+                    "inverse-on-surface": "#eef1f2",
+                    "secondary": "#895100",
+                    "tertiary": "#713d10",
+                    "primary": "#00535b",
+                    "on-tertiary-fixed-variant": "#6d390c",
+                    "background": "#f7fafa",
+                    "secondary-fixed": "#ffdcbc",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#683d00",
+                    "error": "#ba1a1a",
+                    "surface-container": "#ebeeef",
+                    "inverse-primary": "#82d3de",
+                    "surface-variant": "#e0e3e3",
+                    "on-error": "#ffffff",
+                    "outline": "#6f797a",
+                    "tertiary-fixed-dim": "#ffb783",
+                    "surface-container-high": "#e6e9e9",
+                    "on-primary-fixed": "#001f23",
+                    "outline-variant": "#bec8ca",
+                    "on-tertiary-fixed": "#301400",
+                    "primary-container": "#006d77",
+                    "surface-dim": "#d7dadb",
+                    "surface-container-low": "#f1f4f4",
+                    "on-primary-container": "#9becf7"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "section-gap": "1.5rem",
+                    "card-inner-padding": "1rem",
+                    "stack-gap": "0.75rem",
+                    "container-padding": "1rem"
+            },
+            "fontFamily": {
+                    "label-md": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "currency-display": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-sm": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["22px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "currency-display": ["20px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "headline-lg": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #f7fafa; font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .review-card { border: 1px solid #E9ECEF; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-24">
+<!-- Top App Bar -->
+<header class="bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline shadow-sm sticky top-0 z-50 flex justify-between items-center px-container-padding py-3 w-full">
+<div class="flex items-center gap-4">
+<button class="text-primary dark:text-primary-fixed hover:bg-surface-container transition-colors p-2 rounded-full active:scale-95 transition-transform">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary dark:text-primary-fixed">Avis</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="text-primary dark:text-primary-fixed hover:bg-surface-container transition-colors p-2 rounded-full active:scale-95 transition-transform">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</header>
+<main class="px-container-padding py-6 max-w-2xl mx-auto">
+<!-- Tabs -->
+<div class="flex bg-surface-container-low rounded-xl p-1 mb-section-gap">
+<button class="flex-1 py-3 text-center rounded-lg font-label-md text-label-md transition-all duration-300 bg-secondary-container text-on-secondary-container font-bold shadow-sm" id="tab-received" onclick="switchTab('received')">
+                Avis reçus
+            </button>
+<button class="flex-1 py-3 text-center rounded-lg font-label-md text-label-md transition-all duration-300 text-on-surface-variant hover:bg-surface-container-high" id="tab-given" onclick="switchTab('given')">
+                Avis donnés
+            </button>
+</div>
+<!-- Rating Summary -->
+<div class="bg-surface-container-lowest rounded-xl p-card-inner-padding review-card mb-section-gap flex items-center justify-between">
+<div>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-lg text-headline-lg text-primary">4.8</span>
+<span class="font-body-md text-body-md text-on-surface-variant">/5</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Basé sur 124 avis</p>
+</div>
+<div class="flex flex-col items-end gap-1">
+<div class="flex text-secondary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+<span class="font-label-md text-label-md text-primary bg-primary/10 px-2 py-0.5 rounded-full">Top Chauffeur</span>
+</div>
+</div>
+<!-- Review List -->
+<div class="flex flex-col gap-stack-gap" id="review-container">
+<!-- Review 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-card-inner-padding review-card relative">
+<div class="absolute top-4 right-4">
+<div class="flex text-secondary-container">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<div class="flex items-center gap-3 mb-3">
+<img alt="Ahmed M." class="w-10 h-10 rounded-full object-cover border border-outline-variant" data-alt="A professional studio portrait of a Moroccan businessman in his 40s with a warm and trustworthy expression, wearing a crisp white shirt. The background is a soft, blurred corporate office setting with natural daytime lighting and hints of teal accents that match the primary brand color. The photographic style is clean, sharp, and high-quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkpkQOfQNLN0O9SM42j5zqWmB6bk-P35eNP-MK_tGrHN8py9ey7zOkRnZ5Z06kUMcZMEX5ZT2dRebliq11Y-oGrYEt6fUTiUjwdodGHuWVl5S44A78DbCmFuOTNaHORp1Skg4e9AQmQ01UqLRjJDhjwwCjUTvjLR6lY5ZhBmSrL0pIxzITm5enTISYzHheGGGp7kf6LfcFsD-jgxWLu8JVO3N2idXC1pHD5XwLtFUdskuzvZarxAwOKgku2GZorf1OV74aSU5JkSKZ"/>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Ahmed M.</h4>
+<p class="font-label-md text-label-md text-on-surface-variant">Janvier 2024</p>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed italic">"Transport très professionnel et ponctuel."</p>
+<div class="mt-4 pt-4 border-t border-outline-variant flex justify-between items-center">
+<span class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">local_shipping</span> Trajet: Casa → Tanger
+                    </span>
+<button class="text-primary font-label-md text-label-md hover:underline">Répondre</button>
+</div>
+</div>
+<!-- Review 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-card-inner-padding review-card relative">
+<div class="absolute top-4 right-4">
+<div class="flex text-secondary-container">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 0;">star</span>
+</div>
+</div>
+<div class="flex items-center gap-3 mb-3">
+<img alt="Sara S." class="w-10 h-10 rounded-full object-cover border border-outline-variant" data-alt="A modern portrait of a young Moroccan professional woman smiling confidently, wearing a stylish light beige hijab. The lighting is bright and airy, suggesting an outdoor city cafe setting in Marrakech with a clean, high-contrast aesthetic. The visual style is premium and corporate, utilizing a color palette of warm whites and soft natural tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2uHGSz_W_fPR_n7VtYrcjx-NaNMAxlnhgPrffXUrbVpCH4J0r4QQYz00Vh2PSmnv-X96aPyzORmqXNcoWxAFqv3WhPj5Z7xI8cWf2t-UiNXFCCa9v5ZaDChFgr91ngmDn8HoVQn_sDVPDHE_3aMs_N89esUNucbXy6xutUeyULc41WDGCf-IvVlexHOtsdYHzYgqvldr9_AabkjmaScTE_v31-fym8UTpmRGevFsi0zLHy_2E6NPCsOlmlVw_SiCHQ8R4HU4Ru0YA"/>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Sara S.</h4>
+<p class="font-label-md text-label-md text-on-surface-variant">Décembre 2023</p>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed italic">"Bonne communication."</p>
+<div class="mt-4 pt-4 border-t border-outline-variant flex justify-between items-center">
+<span class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">local_shipping</span> Trajet: Rabat → Marrakech
+                    </span>
+<button class="text-primary font-label-md text-label-md hover:underline">Répondre</button>
+</div>
+</div>
+<!-- Review 3 (Placeholder for Asymmetric Layout) -->
+<div class="bg-surface-container-lowest rounded-xl p-card-inner-padding review-card relative border-l-4 border-l-primary">
+<div class="absolute top-4 right-4">
+<div class="flex text-secondary-container">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<div class="flex items-center gap-3 mb-3">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary font-bold">K</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Karim B.</h4>
+<p class="font-label-md text-label-md text-on-surface-variant">Novembre 2023</p>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed italic">"Véhicule très propre et chauffeur d'une grande aide pour le chargement. Je recommande vivement pour vos transports de meubles."</p>
+</div>
+</div>
+<!-- Action Button -->
+<div class="mt-section-gap">
+<button class="w-full bg-primary text-on-primary py-4 rounded-xl font-headline-sm text-headline-sm shadow-lg active:scale-95 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">rate_review</span>
+                Ajouter un avis
+            </button>
+</div>
+</main>
+<!-- AI FAB -->
+<button class="fixed bottom-24 right-4 w-14 h-14 bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-full shadow-xl flex items-center justify-center active:scale-90 duration-200 z-40">
+<span class="material-symbols-outlined">smart_toy</span>
+</button>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-2 py-3 bg-surface dark:bg-surface-container border-t border-outline-variant shadow-[0_-2px_8px_rgba(0,0,0,0.04)] z-50 rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md">Accueil</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">local_shipping</span>
+<span class="font-label-md text-label-md">Offres</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">person_search</span>
+<span class="font-label-md text-label-md">Chauffeurs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed bg-primary-container/10 rounded-xl px-3 py-1 scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">assignment_turned_in</span>
+<span class="font-label-md text-label-md">Avis</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-label-md text-label-md">Profil</span>
+</a>
+</nav>
+<script>
+        function switchTab(type) {
+            const receivedBtn = document.getElementById('tab-received');
+            const givenBtn = document.getElementById('tab-given');
+            
+            if (type === 'received') {
+                receivedBtn.classList.add('bg-secondary-container', 'text-on-secondary-container', 'font-bold', 'shadow-sm');
+                receivedBtn.classList.remove('text-on-surface-variant');
+                givenBtn.classList.remove('bg-secondary-container', 'text-on-secondary-container', 'font-bold', 'shadow-sm');
+                givenBtn.classList.add('text-on-surface-variant');
+            } else {
+                givenBtn.classList.add('bg-secondary-container', 'text-on-secondary-container', 'font-bold', 'shadow-sm');
+                givenBtn.classList.remove('text-on-surface-variant');
+                receivedBtn.classList.remove('bg-secondary-container', 'text-on-secondary-container', 'font-bold', 'shadow-sm');
+                receivedBtn.classList.add('text-on-surface-variant');
+            }
+            
+            // Subtle animation for content
+            const container = document.getElementById('review-container');
+            container.style.opacity = '0';
+            container.style.transform = 'translateY(10px)';
+            setTimeout(() => {
+                container.style.transition = 'all 0.3s ease';
+                container.style.opacity = '1';
+                container.style.transform = 'translateY(0)';
+            }, 100);
+        }
+    </script>
+</body></html>

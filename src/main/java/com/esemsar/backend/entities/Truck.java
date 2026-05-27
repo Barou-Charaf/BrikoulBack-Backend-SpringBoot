@@ -32,6 +32,8 @@ public class Truck {
 
     private String brand;
     private String model;
+    @Column(columnDefinition = "LONGTEXT")
+    private String imageUrl;
 
     @Column(nullable = false)
     private String plateNumber;

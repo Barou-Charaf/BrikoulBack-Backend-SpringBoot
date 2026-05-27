@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>E-Samsar - Candidatures Reçues</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#82d3de",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#bec8ca",
+                        "tertiary-fixed": "#ffdcc5",
+                        "on-tertiary-container": "#ffd7bd",
+                        "secondary": "#895100",
+                        "background": "#f7fafa",
+                        "secondary-container": "#fd9d1a",
+                        "inverse-surface": "#2d3132",
+                        "on-surface-variant": "#3e494a",
+                        "tertiary": "#713d10",
+                        "primary": "#00535b",
+                        "surface-variant": "#e0e3e3",
+                        "on-primary-fixed-variant": "#004f56",
+                        "inverse-on-surface": "#eef1f2",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#181c1d",
+                        "surface-bright": "#f7fafa",
+                        "inverse-primary": "#82d3de",
+                        "surface-dim": "#d7dadb",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#2c1700",
+                        "outline": "#6f797a",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f1f4f4",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e0e3e3",
+                        "surface-container-high": "#e6e9e9",
+                        "on-tertiary-fixed-variant": "#6d390c",
+                        "on-tertiary-fixed": "#301400",
+                        "on-secondary-container": "#663b00",
+                        "on-primary-fixed": "#001f23",
+                        "secondary-fixed": "#ffdcbc",
+                        "primary-container": "#006d77",
+                        "tertiary-fixed-dim": "#ffb783",
+                        "on-primary-container": "#9becf7",
+                        "on-error": "#ffffff",
+                        "surface": "#f7fafa",
+                        "tertiary-container": "#8e5426",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#9ff0fb",
+                        "on-surface": "#181c1d",
+                        "surface-container": "#ebeeef",
+                        "secondary-fixed-dim": "#ffb86b",
+                        "on-secondary-fixed-variant": "#683d00",
+                        "surface-tint": "#006972"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-gap": "0.75rem",
+                        "section-gap": "1.5rem",
+                        "container-padding": "1rem",
+                        "card-inner-padding": "1rem"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "currency-display": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["22px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "currency-display": ["20px", {"lineHeight": "24px", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .whatsapp-button {
+            background-color: #25D366;
+            color: white;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .active-tab-indicator {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            background-color: #00535b;
+            transition: all 0.3s ease;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen pb-32">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline shadow-sm dark:shadow-none flex justify-between items-center px-container-padding h-16">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary dark:text-primary-fixed-dim hover:bg-surface-container-low transition-colors p-2 rounded-full active:scale-95">menu</button>
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary dark:text-primary-fixed-dim">E-Samsar</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="material-symbols-outlined text-on-surface-variant dark:text-surface-variant p-2 hover:bg-surface-container-low rounded-full transition-colors active:scale-95">notifications</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-20 px-container-padding max-w-2xl mx-auto">
+<!-- Header Section -->
+<section class="mb-section-gap">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-1">Candidatures reçues</h2>
+<p class="text-on-surface-variant font-body-md">Gérez les offres des transporteurs pour votre trajet.</p>
+</section>
+<!-- Tabs Filter -->
+<div class="sticky top-16 z-40 bg-background/80 backdrop-blur-md -mx-container-padding px-container-padding mb-6">
+<div class="flex border-b border-outline-variant overflow-x-auto hide-scrollbar relative">
+<button class="flex-1 py-4 px-2 text-center font-label-md text-label-md whitespace-nowrap text-primary font-bold transition-all" id="default-tab" onclick="switchTab(this, 'all')">Toutes</button>
+<button class="flex-1 py-4 px-2 text-center font-label-md text-label-md whitespace-nowrap text-on-surface-variant transition-all" onclick="switchTab(this, 'pending')">En attente</button>
+<button class="flex-1 py-4 px-2 text-center font-label-md text-label-md whitespace-nowrap text-on-surface-variant transition-all" onclick="switchTab(this, 'accepted')">Acceptées</button>
+<button class="flex-1 py-4 px-2 text-center font-label-md text-label-md whitespace-nowrap text-on-surface-variant transition-all" onclick="switchTab(this, 'rejected')">Refusées</button>
+<div class="active-tab-indicator w-1/4" id="tab-indicator"></div>
+</div>
+</div>
+<!-- Applications List -->
+<div class="flex flex-col gap-stack-gap">
+<!-- Application Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm overflow-hidden group hover:border-primary transition-colors">
+<div class="p-card-inner-padding">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary-fixed">
+<img alt="Avatar" class="w-full h-full object-cover" data-alt="A professional headshot of a middle-aged Moroccan truck driver with a warm smile, wearing a clean polo shirt. The background is a soft-focus logistics hub with vibrant teal and white accents. High-quality corporate portrait photography with soft daylighting and sharp focus on eyes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDQ77DOcJCV6V0jBecWruiMZuLg5XHEjHH2ZNxYDNmNqoFUaciAxJ-qji_NGGccxsLn537MfzRGgvwApaMgP3UMO_JQSxg3SiSB4L_UFbvosi0O8hKDat1BRShl8QHD4tpDmnfyRqxgIK9HCHkVoyeE9PHDS8KC4VDrgRxWY_OyH1Ttbn8uhEnIVjij_9v7uq3sRVgpQOwhBVD8NPCg0FIzj8U42zVKRyGR83hZXEf99bIAX4bRAZXXdMh8re6PthSii2ecruR115w"/>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Yassine El Fassi</h3>
+<div class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md">4.9 (124 trajets)</span>
+</div>
+</div>
+</div>
+<div class="px-3 py-1 rounded-full bg-secondary-container/10 text-on-secondary-container text-label-md font-bold uppercase">
+                            En attente
+                        </div>
+</div>
+<div class="flex flex-col gap-2 mb-4">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+<span class="text-body-md">Actuellement à : <span class="font-semibold text-on-surface">Casablanca</span></span>
+</div>
+<p class="text-body-md text-on-surface-variant bg-surface-container-low p-3 rounded-lg italic">
+                            "Bonjour, je suis disponible immédiatement avec un Ford Transit. Je connais bien cet itinéraire."
+                        </p>
+</div>
+<div class="flex items-center justify-between p-3 bg-primary/5 rounded-lg mb-4">
+<span class="text-on-surface-variant font-label-md">Prix proposé</span>
+<span class="font-currency-display text-currency-display text-primary">1,200 MAD</span>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<button class="flex items-center justify-center gap-2 py-3 bg-primary text-on-primary rounded-xl font-label-md uppercase tracking-wider shadow-sm hover:opacity-90 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+                            Accepter
+                        </button>
+<button class="flex items-center justify-center gap-2 py-3 border border-error text-error rounded-xl font-label-md uppercase tracking-wider hover:bg-error/5 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-[20px]">cancel</span>
+                            Refuser
+                        </button>
+<button class="flex items-center justify-center gap-2 py-3 bg-surface-container-high text-primary rounded-xl font-label-md uppercase tracking-wider hover:bg-surface-container-highest active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-[20px]">person_search</span>
+                            Profil
+                        </button>
+<button class="flex items-center justify-center gap-2 py-3 whatsapp-button rounded-xl font-label-md uppercase tracking-wider shadow-sm hover:opacity-90 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+                            WhatsApp
+                        </button>
+</div>
+</div>
+</div>
+<!-- Application Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm overflow-hidden group hover:border-primary transition-colors">
+<div class="p-card-inner-padding">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary-fixed">
+<img alt="Avatar" class="w-full h-full object-cover" data-alt="A close-up portrait of a professional male logistics coordinator in his late 20s, wearing a crisp white shirt. The lighting is modern and vibrant, reflecting a professional and efficient business environment. The color palette is dominated by deep teal and professional grays." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoCu2btwdQ7Ar9W3u1ym_kxT6z8nJx4oq4DCgJRa-bL3oPxDHe0iYzPW5zOBHEtLNLdSeWzvsh4NDpaKnF9A8UeM56-SbEIdShGAgJ2Ki2tOF0TMVeVn6vjV16yEWBcsJDO1Xs255jWVKywKMl6JKuhpQXa1pMiSMmgOymf5LF8XCvgA9tbzl5hTc3L08FXBUCe38eAok0QJ2PbL-v5JtwvWPBLPj6lz2H9y4iuaexkxfrp1x1jxlc90OU-w1Aj1F2bG0qGIFF0T7L"/>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Omar Bensalah</h3>
+<div class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md">4.7 (56 trajets)</span>
+</div>
+</div>
+</div>
+<div class="px-3 py-1 rounded-full bg-secondary-container/10 text-on-secondary-container text-label-md font-bold uppercase">
+                            En attente
+                        </div>
+</div>
+<div class="flex flex-col gap-2 mb-4">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+<span class="text-body-md">Actuellement à : <span class="font-semibold text-on-surface">Rabat</span></span>
+</div>
+<p class="text-body-md text-on-surface-variant bg-surface-container-low p-3 rounded-lg italic">
+                            "Camionnette 3.5t disponible. Livraison sécurisée et ponctuelle garantie."
+                        </p>
+</div>
+<div class="flex items-center justify-between p-3 bg-primary/5 rounded-lg mb-4">
+<span class="text-on-surface-variant font-label-md">Prix proposé</span>
+<span class="font-currency-display text-currency-display text-primary">1,450 MAD</span>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<button class="flex items-center justify-center gap-2 py-3 bg-primary text-on-primary rounded-xl font-label-md uppercase tracking-wider shadow-sm hover:opacity-90 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+                            Accepter
+                        </button>
+<button class="flex items-center justify-center gap-2 py-3 border border-error text-error rounded-xl font-label-md uppercase tracking-wider hover:bg-error/5 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-[20px]">cancel</span>
+                            Refuser
+                        </button>
+<button class="flex items-center justify-center gap-2 py-3 bg-surface-container-high text-primary rounded-xl font-label-md uppercase tracking-wider hover:bg-surface-container-highest active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-[20px]">person_search</span>
+                            Profil
+                        </button>
+<button class="flex items-center justify-center gap-2 py-3 whatsapp-button rounded-xl font-label-md uppercase tracking-wider shadow-sm hover:opacity-90 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+                            WhatsApp
+                        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Empty State (Hidden) -->
+<div class="hidden flex flex-col items-center justify-center py-20 text-center" id="empty-state">
+<span class="material-symbols-outlined text-outline text-[64px] mb-4">folder_open</span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface mb-2">Aucune candidature</h3>
+<p class="text-on-surface-variant">Revenez plus tard pour voir les offres des transporteurs.</p>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 pb-safe bg-surface dark:bg-inverse-surface border-t border-outline-variant dark:border-outline shadow-[0_-4px_12px_rgba(0,0,0,0.05)] z-50 rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-primary/5 transition-all p-1 px-3 rounded-lg" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md">Accueil</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-primary/5 transition-all p-1 px-3 rounded-lg" href="#">
+<span class="material-symbols-outlined">local_shipping</span>
+<span class="font-label-md text-label-md">Offres</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim font-bold hover:bg-primary/5 transition-all p-1 px-3 rounded-lg" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">assignment</span>
+<span class="font-label-md text-label-md">Candidatures</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-primary/5 transition-all p-1 px-3 rounded-lg" href="#">
+<span class="material-symbols-outlined">fire_truck</span>
+<span class="font-label-md text-label-md">Véhicules</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-primary/5 transition-all p-1 px-3 rounded-lg" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md">Profil</span>
+</a>
+</nav>
+<!-- Floating Action Button: AI Assistant -->
+<button class="fixed bottom-24 right-6 w-14 h-14 bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-full shadow-lg flex items-center justify-center active:scale-90 transition-transform z-40">
+<span class="material-symbols-outlined text-[28px]">auto_awesome</span>
+</button>
+<script>
+        function switchTab(element, filter) {
+            // Update Tab Styling
+            const tabs = element.parentElement.querySelectorAll('button');
+            tabs.forEach(tab => {
+                tab.classList.remove('text-primary', 'font-bold');
+                tab.classList.add('text-on-surface-variant');
+            });
+            element.classList.remove('text-on-surface-variant');
+            element.classList.add('text-primary', 'font-bold');
+
+            // Move Indicator
+            const indicator = document.getElementById('tab-indicator');
+            const index = Array.from(tabs).indexOf(element);
+            indicator.style.left = (index * 25) + '%';
+
+            // Filter logic simulation
+            const cards = document.querySelectorAll('main > div > div');
+            if (filter === 'accepted' || filter === 'rejected') {
+                cards.forEach(card => card.classList.add('hidden'));
+                document.getElementById('empty-state').classList.remove('hidden');
+            } else {
+                cards.forEach(card => card.classList.remove('hidden'));
+                document.getElementById('empty-state').classList.add('hidden');
+            }
+        }
+
+        // Initialize default tab position
+        window.onload = () => {
+            const defaultTab = document.getElementById('default-tab');
+            if (defaultTab) {
+                const indicator = document.getElementById('tab-indicator');
+                indicator.style.left = '0%';
+            }
+        };
+    </script>
+</body></html>

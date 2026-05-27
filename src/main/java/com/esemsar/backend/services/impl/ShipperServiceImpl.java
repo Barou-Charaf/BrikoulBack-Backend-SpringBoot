@@ -56,6 +56,9 @@ public class ShipperServiceImpl implements ShipperService {
         if (hasText(request.phone())) {
             user.setPhone(request.phone());
         }
+        if (request.profileImageUrl() != null) {
+            user.setProfileImageUrl(request.profileImageUrl());
+        }
         if (request.companyName() != null) {
             shipper.setCompanyName(request.companyName());
         }

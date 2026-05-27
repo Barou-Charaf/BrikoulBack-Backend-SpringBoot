@@ -9,6 +9,8 @@ public interface TruckService {
 
     List<TruckResponse> myTrucks();
 
+    List<TruckResponse> byDriver(Long driverProfileId);
+
     TruckResponse get(Long id);
 
     TruckResponse update(Long id, TruckRequest request);

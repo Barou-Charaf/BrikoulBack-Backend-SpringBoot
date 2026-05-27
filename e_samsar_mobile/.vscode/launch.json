@@ -1,0 +1,29 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "E-Samsar Web - Chrome",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "deviceId": "chrome",
+      "args": [
+        "--web-browser-flag=--disable-extensions",
+        "--web-browser-flag=--disable-background-timer-throttling",
+        "--web-browser-flag=--disable-renderer-backgrounding"
+      ]
+    },
+    {
+      "name": "E-Samsar Web - Edge",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "deviceId": "edge",
+      "args": [
+        "--web-browser-flag=--disable-extensions",
+        "--web-browser-flag=--disable-background-timer-throttling",
+        "--web-browser-flag=--disable-renderer-backgrounding"
+      ]
+    }
+  ]
+}

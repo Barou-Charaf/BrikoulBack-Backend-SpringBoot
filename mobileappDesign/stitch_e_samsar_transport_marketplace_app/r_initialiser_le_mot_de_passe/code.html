@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Réinitialiser le mot de passe | E-Samsar</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#ffdad6",
+                    "primary-fixed-dim": "#82d3de",
+                    "on-secondary": "#ffffff",
+                    "outline-variant": "#bec8ca",
+                    "tertiary-fixed": "#ffdcc5",
+                    "on-tertiary-container": "#ffd7bd",
+                    "secondary": "#895100",
+                    "background": "#f7fafa",
+                    "secondary-container": "#fd9d1a",
+                    "inverse-surface": "#2d3132",
+                    "on-surface-variant": "#3e494a",
+                    "tertiary": "#713d10",
+                    "primary": "#00535b",
+                    "surface-variant": "#e0e3e3",
+                    "on-primary-fixed-variant": "#004f56",
+                    "inverse-on-surface": "#eef1f2",
+                    "surface-container-lowest": "#ffffff",
+                    "on-background": "#181c1d",
+                    "surface-bright": "#f7fafa",
+                    "inverse-primary": "#82d3de",
+                    "surface-dim": "#d7dadb",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed": "#2c1700",
+                    "outline": "#6f797a",
+                    "on-primary": "#ffffff",
+                    "surface-container-low": "#f1f4f4",
+                    "on-error-container": "#93000a",
+                    "surface-container-highest": "#e0e3e3",
+                    "surface-container-high": "#e6e9e9",
+                    "on-tertiary-fixed-variant": "#6d390c",
+                    "on-tertiary-fixed": "#301400",
+                    "on-secondary-container": "#663b00",
+                    "on-primary-fixed": "#001f23",
+                    "secondary-fixed": "#ffdcbc",
+                    "primary-container": "#006d77",
+                    "tertiary-fixed-dim": "#ffb783",
+                    "on-primary-container": "#9becf7",
+                    "on-error": "#ffffff",
+                    "surface": "#f7fafa",
+                    "tertiary-container": "#8e5426",
+                    "error": "#ba1a1a",
+                    "primary-fixed": "#9ff0fb",
+                    "on-surface": "#181c1d",
+                    "surface-container": "#ebeeef",
+                    "secondary-fixed-dim": "#ffb86b",
+                    "on-secondary-fixed-variant": "#683d00",
+                    "surface-tint": "#006972"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-gap": "0.75rem",
+                    "section-gap": "1.5rem",
+                    "container-padding": "1rem",
+                    "card-inner-padding": "1rem"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "headline-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "currency-display": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["22px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "currency-display": ["20px", {"lineHeight": "24px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .success-banner {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, opacity 0.3s ease-out;
+            opacity: 0;
+        }
+        .success-banner.active {
+            max-height: 200px;
+            opacity: 1;
+            margin-bottom: 1.5rem;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid #E9ECEF;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background min-h-screen flex flex-col font-body-md text-on-background">
+<!-- Header (Suppressed Nav - Task Focused) -->
+<header class="h-16 flex items-center px-container-padding fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-sm">
+<div class="flex items-center gap-3">
+<button class="p-2 hover:bg-surface-container-low rounded-full transition-colors active:scale-95" onclick="window.history.back()">
+<span class="material-symbols-outlined text-on-surface">arrow_back</span>
+</button>
+<span class="font-headline-sm text-headline-sm text-primary">E-Samsar</span>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow flex items-center justify-center pt-24 pb-12 px-container-padding">
+<div class="w-full max-w-md">
+<!-- Success Message Container -->
+<div class="success-banner bg-secondary-container/10 border border-secondary-container rounded-xl p-4 flex items-start gap-3" id="successBanner">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<p class="font-headline-sm text-headline-sm text-on-secondary-container mb-1">Félicitations</p>
+<p class="font-body-md text-body-md text-on-secondary-container/80">Mot de passe réinitialisé avec succès.</p>
+</div>
+</div>
+<!-- Reset Password Card -->
+<div class="glass-card rounded-2xl p-8 space-y-section-gap">
+<!-- Visual Anchor -->
+<div class="flex flex-col items-center text-center space-y-stack-gap">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="lock_reset" style="font-variation-settings: 'FILL' 0;">lock_reset</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Réinitialiser le mot de passe</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[280px]">
+                        Veuillez saisir le code reçu et choisir votre nouveau mot de passe sécurisé.
+                    </p>
+</div>
+<!-- Form -->
+<form class="space-y-stack-gap" id="resetForm" onsubmit="handleReset(event)">
+<!-- Code Input -->
+<div class="space-y-1.5">
+<label class="font-label-md text-label-md text-on-surface-variant px-1 uppercase tracking-wider" for="resetCode">Code de réinitialisation</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="key">key</span>
+<input class="w-full pl-12 pr-4 py-3.5 bg-white border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-outline-variant" id="resetCode" placeholder="Entrez le code à 6 chiffres" required="" type="text"/>
+</div>
+</div>
+<!-- New Password -->
+<div class="space-y-1.5">
+<label class="font-label-md text-label-md text-on-surface-variant px-1 uppercase tracking-wider" for="newPassword">Nouveau mot de passe</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="lock">lock</span>
+<input class="w-full pl-12 pr-12 py-3.5 bg-white border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-outline-variant" id="newPassword" placeholder="Minimum 8 caractères" required="" type="password"/>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-outline hover:text-primary transition-colors" onclick="togglePassword('newPassword', this)" type="button">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</div>
+</div>
+<!-- Confirm Password -->
+<div class="space-y-1.5">
+<label class="font-label-md text-label-md text-on-surface-variant px-1 uppercase tracking-wider" for="confirmPassword">Confirmer le nouveau mot de passe</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="verified_user">verified_user</span>
+<input class="w-full pl-12 pr-12 py-3.5 bg-white border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-outline-variant" id="confirmPassword" placeholder="Répétez le mot de passe" required="" type="password"/>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-outline hover:text-primary transition-colors" onclick="togglePassword('confirmPassword', this)" type="button">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</div>
+</div>
+<!-- Submit Button -->
+<button class="w-full mt-4 bg-primary text-on-primary py-4 rounded-xl font-headline-sm text-headline-sm shadow-lg shadow-primary/10 hover:bg-primary-container transition-all active:scale-95 flex items-center justify-center gap-2 group" type="submit">
+                        Réinitialiser
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</form>
+</div>
+<!-- Illustration or Branding Support -->
+<div class="mt-section-gap text-center">
+<p class="font-label-md text-label-md text-outline">
+                    Besoin d'aide ? <a class="text-primary font-bold hover:underline" href="#">Contacter le support</a>
+</p>
+</div>
+</div>
+</main>
+<!-- Background Decorative Elements -->
+<div class="fixed top-0 right-0 -z-10 opacity-10 pointer-events-none">
+<div class="w-96 h-96 bg-primary rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
+</div>
+<div class="fixed bottom-0 left-0 -z-10 opacity-10 pointer-events-none">
+<div class="w-80 h-80 bg-secondary rounded-full blur-[80px] translate-y-1/2 -translate-x-1/2"></div>
+</div>
+<script>
+        function togglePassword(id, btn) {
+            const input = document.getElementById(id);
+            const icon = btn.querySelector('.material-symbols-outlined');
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.innerText = 'visibility_off';
+            } else {
+                input.type = 'password';
+                icon.innerText = 'visibility';
+            }
+        }
+
+        function handleReset(event) {
+            event.preventDefault();
+            const form = event.target;
+            const btn = form.querySelector('button[type="submit"]');
+            const originalContent = btn.innerHTML;
+            
+            // Loading state
+            btn.disabled = true;
+            btn.innerHTML = `<span class="material-symbols-outlined animate-spin">sync</span> Mise à jour...`;
+
+            setTimeout(() => {
+                // Success Simulation
+                document.getElementById('successBanner').classList.add('active');
+                form.reset();
+                btn.innerHTML = `Terminé`;
+                btn.classList.replace('bg-primary', 'bg-secondary-container');
+                btn.classList.replace('text-on-primary', 'text-on-secondary-container');
+                
+                // Redirect logic could go here
+            }, 1500);
+        }
+    </script>
+</body></html>

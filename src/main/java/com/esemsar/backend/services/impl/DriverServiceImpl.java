@@ -48,7 +48,22 @@ public class DriverServiceImpl implements DriverService {
     @Transactional
     public DriverProfileResponse updateMe(DriverProfileRequest request) {
         DriverProfile driver = currentDriver();
-        driver.setCurrentCity(request.currentCity());
+        User user = driver.getUser();
+        if (request.firstName() != null) {
+            user.setFirstName(request.firstName());
+        }
+        if (request.lastName() != null) {
+            user.setLastName(request.lastName());
+        }
+        if (request.phone() != null) {
+            user.setPhone(request.phone());
+        }
+        if (request.profileImageUrl() != null) {
+            user.setProfileImageUrl(request.profileImageUrl());
+        }
+        if (request.currentCity() != null) {
+            driver.setCurrentCity(request.currentCity());
+        }
         if (request.available() != null) {
             driver.setAvailable(request.available());
         }

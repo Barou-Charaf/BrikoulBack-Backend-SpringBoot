@@ -8,6 +8,7 @@ import jakarta.validation.constraints.Positive;
 public record TruckRequest(
     String brand,
     String model,
+    String imageUrl,
     @NotBlank String plateNumber,
     @NotNull VehicleType vehicleType,
     @Positive Double capacityKg,

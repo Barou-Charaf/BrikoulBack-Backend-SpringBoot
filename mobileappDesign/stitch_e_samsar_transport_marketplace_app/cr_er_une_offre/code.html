@@ -1,0 +1,312 @@
+<!DOCTYPE html><html class="light" lang="fr"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>E-Samsar - Créer une Offre</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#ffdcbc",
+                        "on-error": "#ffffff",
+                        "surface": "#f7fafa",
+                        "secondary-fixed-dim": "#ffb86b",
+                        "inverse-primary": "#82d3de",
+                        "inverse-surface": "#2d3132",
+                        "inverse-on-surface": "#eef1f2",
+                        "tertiary-fixed": "#ffdcc5",
+                        "tertiary-fixed-dim": "#ffb783",
+                        "surface-container-high": "#e6e9e9",
+                        "primary-fixed": "#9ff0fb",
+                        "outline": "#6f797a",
+                        "primary-fixed-dim": "#82d3de",
+                        "error": "#ba1a1a",
+                        "primary": "#00535b",
+                        "tertiary-container": "#8e5426",
+                        "surface-bright": "#f7fafa",
+                        "on-primary": "#ffffff",
+                        "background": "#f7fafa",
+                        "on-secondary-fixed": "#2c1700",
+                        "on-surface": "#181c1d",
+                        "on-secondary-fixed-variant": "#683d00",
+                        "surface-tint": "#006972",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#713d10",
+                        "on-secondary-container": "#663b00",
+                        "on-primary-fixed": "#001f23",
+                        "primary-container": "#006d77",
+                        "secondary-container": "#fd9d1a",
+                        "on-primary-fixed-variant": "#004f56",
+                        "surface-variant": "#e0e3e3",
+                        "surface-container-low": "#f1f4f4",
+                        "on-background": "#181c1d",
+                        "outline-variant": "#bec8ca",
+                        "on-tertiary-fixed": "#301400",
+                        "on-tertiary-fixed-variant": "#6d390c",
+                        "on-primary-container": "#9becf7",
+                        "on-tertiary-container": "#ffd7bd",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#d7dadb",
+                        "surface-container-highest": "#e0e3e3",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#3e494a",
+                        "surface-container": "#ebeeef",
+                        "on-tertiary": "#ffffff",
+                        "secondary": "#895100",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-padding": "1rem",
+                        "stack-gap": "0.75rem",
+                        "section-gap": "1.5rem",
+                        "card-inner-padding": "1rem"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "currency-display": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "headline-md": ["22px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "currency-display": ["20px", {"lineHeight": "24px", "fontWeight": "700"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .form-input-focus:focus {
+            border-color: #00535b;
+            box-shadow: 0 0 0 1px #00535b;
+            outline: none;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .custom-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-lg antialiased mb-24">
+<!-- Top AppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-container-padding h-16 bg-surface dark:bg-background border-b border-outline-variant dark:border-outline shadow-sm">
+<div class="flex items-center gap-4">
+<button class="transition-all duration-200 active:scale-95 text-primary dark:text-primary-fixed-dim">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-lg text-headline-lg text-primary dark:text-primary-fixed-dim">E-Samsar</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="transition-all duration-200 active:scale-95 text-primary dark:text-primary-fixed-dim">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</header>
+<main class="mt-20 px-container-padding max-w-2xl mx-auto">
+<!-- Header Text -->
+<div class="mb-section-gap">
+<h2 class="font-headline-md text-headline-md text-primary mb-2">Créer une nouvelle offre</h2>
+<p class="text-on-surface-variant font-body-md">Publiez votre besoin de transport et recevez des propositions des meilleurs transporteurs du Maroc.</p>
+</div>
+<form class="space-y-section-gap" id="offerForm">
+<!-- Informations Générales Section -->
+<section class="bg-surface-container-lowest p-card-inner-padding rounded-xl border border-outline-variant shadow-sm">
+<div class="flex items-center gap-2 mb-stack-gap">
+<span class="material-symbols-outlined text-primary">info</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">Informations générales</h3>
+</div>
+<div class="space-y-stack-gap">
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider" for="title">Titre de l'offre</label>
+<input class="w-full bg-surface border border-outline-variant rounded-xl px-4 py-3 font-body-md form-input-focus" id="title" placeholder="Ex: Transport de 50 palettes de dattes" type="text">
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider" for="description">Description détaillée</label>
+<textarea class="w-full bg-surface border border-outline-variant rounded-xl px-4 py-3 font-body-md form-input-focus" id="description" placeholder="Précisez les détails de manipulation, l'urgence, etc." rows="3"></textarea>
+</div>
+</div>
+</section>
+<!-- Trajet Section -->
+<section class="bg-surface-container-lowest p-card-inner-padding rounded-xl border border-outline-variant shadow-sm relative overflow-hidden">
+<div class="flex items-center gap-2 mb-stack-gap">
+<span class="material-symbols-outlined text-primary">route</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">Trajet</h3>
+</div>
+<div class="space-y-4 relative">
+<!-- Vertical Line Logic -->
+<div class="absolute left-[11px] top-8 bottom-20 w-[2px] border-l-2 border-dashed border-outline-variant"></div>
+<!-- Pickup -->
+<div class="flex gap-4 items-start relative">
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center text-white z-10 shrink-0 mt-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+</div>
+<div class="flex-1 space-y-2">
+<input class="w-full bg-surface border border-outline-variant rounded-xl px-4 py-2 font-body-md form-input-focus" placeholder="Ville de départ (Ex: Casablanca)" type="text">
+<input class="w-full bg-surface border border-outline-variant rounded-xl px-4 py-2 text-sm font-body-md form-input-focus" placeholder="Adresse de chargement précise" type="text">
+</div>
+</div>
+<!-- Delivery -->
+<div class="flex gap-4 items-start relative">
+<div class="w-6 h-6 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container z-10 shrink-0 mt-1">
+<span class="material-symbols-outlined text-[14px]">flag</span>
+</div>
+<div class="flex-1 space-y-2">
+<input class="w-full bg-surface border border-outline-variant rounded-xl px-4 py-2 font-body-md form-input-focus" placeholder="Ville d'arrivée (Ex: Tanger)" type="text">
+<input class="w-full bg-surface border border-outline-variant rounded-xl px-4 py-2 text-sm font-body-md form-input-focus" placeholder="Adresse de livraison précise" type="text">
+</div>
+</div>
+</div>
+</section>
+<!-- Marchandise Section -->
+<section class="bg-surface-container-lowest p-card-inner-padding rounded-xl border border-outline-variant shadow-sm">
+<div class="flex items-center gap-2 mb-stack-gap">
+<span class="material-symbols-outlined text-primary">inventory_2</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">Marchandise</h3>
+</div>
+<div class="grid grid-cols-2 gap-stack-gap">
+<div class="flex flex-col gap-1 col-span-2">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Type de marchandise</label>
+<select class="w-full bg-surface border border-outline-variant rounded-xl px-4 py-3 font-body-md form-input-focus">
+<option>Agroalimentaire</option>
+<option>Matériaux de construction</option>
+<option>Produits chimiques</option>
+<option>Électronique</option>
+<option>Autre</option>
+</select>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Poids (Tonnes)</label>
+<input class="w-full bg-surface border border-outline-variant rounded-xl px-4 py-3 font-body-md form-input-focus" placeholder="0.0" type="number">
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Volume (m³)</label>
+<input class="w-full bg-surface border border-outline-variant rounded-xl px-4 py-3 font-body-md form-input-focus" placeholder="0.0" type="number">
+</div>
+</div>
+<!-- Vehicle Required Chips -->
+<div class="mt-stack-gap">
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mb-2">Véhicule requis</p>
+<div class="flex gap-2 overflow-x-auto custom-scrollbar pb-2">
+<label class="flex-shrink-0 cursor-pointer">
+<input checked="" class="hidden peer" name="vehicle" type="radio">
+<div class="px-4 py-2 rounded-full border border-outline-variant bg-surface text-on-surface-variant peer-checked:bg-primary-container peer-checked:text-on-primary-container peer-checked:border-primary transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">local_shipping</span>
+<span class="text-sm font-semibold">Camion</span>
+</div>
+</label>
+<label class="flex-shrink-0 cursor-pointer">
+<input class="hidden peer" name="vehicle" type="radio">
+<div class="px-4 py-2 rounded-full border border-outline-variant bg-surface text-on-surface-variant peer-checked:bg-primary-container peer-checked:text-on-primary-container peer-checked:border-primary transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">airport_shuttle</span>
+<span class="text-sm font-semibold">Fourgon</span>
+</div>
+</label>
+<label class="flex-shrink-0 cursor-pointer">
+<input class="hidden peer" name="vehicle" type="radio">
+<div class="px-4 py-2 rounded-full border border-outline-variant bg-surface text-on-surface-variant peer-checked:bg-primary-container peer-checked:text-on-primary-container peer-checked:border-primary transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">ac_unit</span>
+<span class="text-sm font-semibold">Frigo</span>
+</div>
+</label>
+</div>
+</div>
+</section>
+<!-- Prix et Date Section -->
+<section class="bg-surface-container-lowest p-card-inner-padding rounded-xl border border-outline-variant shadow-sm">
+<div class="flex items-center gap-2 mb-stack-gap">
+<span class="material-symbols-outlined text-primary">payments</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">Prix et date</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-gap">
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Date de ramassage</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">calendar_today</span>
+<input class="w-full bg-surface border border-outline-variant rounded-xl pl-10 pr-4 py-3 font-body-md form-input-focus" type="date">
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Budget estimé (MAD)</label>
+<div class="relative">
+<span class="absolute right-4 top-1/2 -translate-y-1/2 font-currency-display text-primary text-sm">MAD</span>
+<input class="w-full bg-surface border border-outline-variant rounded-xl px-4 py-3 font-body-md form-input-focus" placeholder="Ex: 2500" type="number">
+</div>
+</div>
+</div>
+</section>
+<!-- Action Button -->
+<div class="pt-4">
+<button class="w-full bg-primary text-white font-headline-sm py-4 rounded-xl shadow-lg hover:bg-primary-container hover:text-on-primary-container transition-all active:scale-[0.98] flex items-center justify-center gap-2" type="submit">
+<span class="material-symbols-outlined">send</span>
+                    Créer l’offre
+                </button>
+</div>
+</form>
+<!-- AI Assistant Suggestion Bubble -->
+<div class="mt-section-gap p-4 bg-primary-container/10 border border-primary-container/20 rounded-2xl flex gap-4 items-center">
+<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white shrink-0">
+<span class="material-symbols-outlined">smart_toy</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-primary">Besoin d'aide pour estimer le prix ?</p>
+<p class="text-xs text-on-surface-variant">L'IA E-Samsar peut analyser les trajets similaires pour vous proposer un tarif compétitif.</p>
+<button class="mt-2 text-xs font-bold text-primary underline" type="button">Consulter l'assistant</button>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-2 py-3 bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant dark:border-outline shadow-lg rounded-t-xl md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant transition-transform duration-300 ease-in-out active:scale-90" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="font-label-md text-label-md">Rechercher</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 transition-transform duration-300 ease-in-out active:scale-90" href="#">
+<span class="material-symbols-outlined">local_shipping</span>
+<span class="font-label-md text-label-md">Mes Envois</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant transition-transform duration-300 ease-in-out active:scale-90" href="#">
+<span class="material-symbols-outlined">smart_toy</span>
+<span class="font-label-md text-label-md">Assistant AI</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant transition-transform duration-300 ease-in-out active:scale-90" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md">Profil</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant transition-transform duration-300 ease-in-out active:scale-90" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Paramètres</span>
+</a>
+</nav>
+<script>
+        document.getElementById('offerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Micro-interaction ripple or loading state could be added here
+            alert('Votre offre a été publiée avec succès !');
+        });
+    </script>
+</body></html>

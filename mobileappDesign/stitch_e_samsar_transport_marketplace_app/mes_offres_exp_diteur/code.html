@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#82d3de",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#bec8ca",
+                        "tertiary-fixed": "#ffdcc5",
+                        "on-tertiary-container": "#ffd7bd",
+                        "secondary": "#895100",
+                        "background": "#f7fafa",
+                        "secondary-container": "#fd9d1a",
+                        "inverse-surface": "#2d3132",
+                        "on-surface-variant": "#3e494a",
+                        "tertiary": "#713d10",
+                        "primary": "#00535b",
+                        "surface-variant": "#e0e3e3",
+                        "on-primary-fixed-variant": "#004f56",
+                        "inverse-on-surface": "#eef1f2",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#181c1d",
+                        "surface-bright": "#f7fafa",
+                        "inverse-primary": "#82d3de",
+                        "surface-dim": "#d7dadb",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#2c1700",
+                        "outline": "#6f797a",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f1f4f4",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e0e3e3",
+                        "surface-container-high": "#e6e9e9",
+                        "on-tertiary-fixed-variant": "#6d390c",
+                        "on-tertiary-fixed": "#301400",
+                        "on-secondary-container": "#663b00",
+                        "on-primary-fixed": "#001f23",
+                        "secondary-fixed": "#ffdcbc",
+                        "primary-container": "#006d77",
+                        "tertiary-fixed-dim": "#ffb783",
+                        "on-primary-container": "#9becf7",
+                        "on-error": "#ffffff",
+                        "surface": "#f7fafa",
+                        "tertiary-container": "#8e5426",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#9ff0fb",
+                        "on-surface": "#181c1d",
+                        "surface-container": "#ebeeef",
+                        "secondary-fixed-dim": "#ffb86b",
+                        "on-secondary-fixed-variant": "#683d00",
+                        "surface-tint": "#006972"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-gap": "0.75rem",
+                        "section-gap": "1.5rem",
+                        "container-padding": "1rem",
+                        "card-inner-padding": "1rem"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "currency-display": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["22px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "currency-display": ["20px", {"lineHeight": "24px", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .active-tab { position: relative; color: #00535b; }
+        .active-tab::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 3px; background-color: #00535b; border-radius: 99px; }
+        .route-line { position: absolute; left: 7px; top: 20px; bottom: 20px; width: 2px; border-left: 2px dashed #bec8ca; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-24">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface border-b border-outline-variant shadow-sm flex justify-between items-center px-container-padding h-16">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 transition-transform duration-150 p-2 hover:bg-surface-container-low rounded-full">
+<span class="material-symbols-outlined text-primary">menu</span>
+</button>
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary">E-Samsar</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="active:scale-95 transition-transform duration-150 p-2 hover:bg-surface-container-low rounded-full">
+<span class="material-symbols-outlined text-primary">notifications</span>
+</button>
+</div>
+</header>
+<main class="pt-20 px-container-padding">
+<!-- Title & Stats -->
+<section class="mb-section-gap">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Mes offres</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Gérez vos demandes de transport en temps réel.</p>
+</section>
+<!-- Filters Tabs -->
+<div class="flex overflow-x-auto no-scrollbar border-b border-outline-variant mb-6 -mx-container-padding px-container-padding sticky top-16 bg-background z-40">
+<button class="px-4 py-3 font-label-md text-label-md active-tab whitespace-nowrap">Toutes</button>
+<button class="px-4 py-3 font-label-md text-label-md text-on-surface-variant whitespace-nowrap">Actives</button>
+<button class="px-4 py-3 font-label-md text-label-md text-on-surface-variant whitespace-nowrap">Terminées</button>
+<button class="px-4 py-3 font-label-md text-label-md text-on-surface-variant whitespace-nowrap">Annulées</button>
+</div>
+<!-- Offers List -->
+<div class="space-y-stack-gap">
+<!-- Offer Card 1: Active/Pending -->
+<div class="bg-surface-container-lowest border border-[#E9ECEF] rounded-xl p-card-inner-padding shadow-[0_2px_8px_rgba(0,0,0,0.04)] active:border-primary transition-colors">
+<div class="flex justify-between items-start mb-3">
+<span class="px-3 py-1 rounded-full bg-secondary-container/12 text-on-secondary-container font-label-md text-[10px] uppercase tracking-wider">En attente</span>
+<div class="text-right">
+<p class="font-currency-display text-currency-display text-primary">1 200 DH</p>
+<p class="font-label-md text-[10px] text-on-surface-variant">Prix proposé</p>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm mb-4">Transport de 20 palettes de dattes</h3>
+<div class="relative pl-6 mb-4">
+<div class="route-line"></div>
+<div class="mb-3 relative">
+<span class="absolute -left-[22px] top-1 w-3 h-3 rounded-full bg-primary border-2 border-white"></span>
+<p class="font-label-md text-on-surface-variant leading-none mb-1">Enlèvement</p>
+<p class="font-body-md font-semibold">Errachidia, Centre-Ville</p>
+</div>
+<div class="relative">
+<span class="absolute -left-[22px] top-1 w-3 h-3 rounded-full bg-secondary border-2 border-white"></span>
+<p class="font-label-md text-on-surface-variant leading-none mb-1">Destination</p>
+<p class="font-body-md font-semibold">Casablanca, Port de Casa</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 py-3 border-y border-outline-variant/30 mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">calendar_today</span>
+<div>
+<p class="font-label-md text-[10px] text-on-surface-variant">Date prévue</p>
+<p class="font-body-md font-semibold">12 Oct. 2023</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">local_shipping</span>
+<div>
+<p class="font-label-md text-[10px] text-on-surface-variant">Véhicule</p>
+<p class="font-body-md font-semibold">Camion 10T</p>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">group</span>
+<span class="font-label-md">8 candidatures</span>
+</div>
+<div class="flex -space-x-2">
+<img alt="Driver" class="w-7 h-7 rounded-full border-2 border-white object-cover" data-alt="A close-up portrait of a professional Moroccan truck driver smiling warmly, wearing a clean polo shirt. The lighting is natural and bright, suggesting a morning setting in a professional logistics environment. The background shows blurred industrial outlines with a clean, high-key corporate aesthetic and a primary teal color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeYpXAVoktblCQ9dQRGl-Y6PBmTUrPiHFxE0VTMtNAEQMj_n1PovJOCEODCWErPUSQ-S-bIFVkAday4Idig7Zx2moxRifMioLFQtjcWlty8rQDcARDEeqXHUYGeQcD5goANfUr2cRle6hSd_jRCA28KsW3HdJFbEfLOAGUMRY-eFZGvc_cRVUwy9BL2eVDW7-iSKbVZ5hca8P64zH4pbA0bge1FJoM5UuSEAvtVg6g1onPvVhWSbtvuTnUwDEuLbi1H2RX7G3aKjzp"/>
+<img alt="Driver" class="w-7 h-7 rounded-full border-2 border-white object-cover" data-alt="Portrait of a focused middle-aged man with a professional demeanor, representing a logistics partner. He is dressed in a smart-casual outfit. The background is a clean, bright office space with soft daylight, maintaining the professional Moroccan transport marketplace style with deep teal accents and high legibility." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRmvemgfIeeUzjIyiPfJ-15Gqw4JNuSmwJ3uvzprJh_cIBoO2_ZjEfdpXjU3RCWC76oSvsj3ZPKHvpFxzVqlxd7QEziJ9R1CQho3DVupJIEJOXOAb_g9FUG77YOAVIalZkYz3wYC3G8ZTgS2SPV_SOGNPEnakFGlsC0S5jLQoUAc054tPLm_iIC9H79ukRMziZtG8hb9aj0jSTzVMW68pYIHM4xZRBfwoDsRffD07r2B0aHxmqEeO_5uPOCObJGd6cfKsSewNcjFjw"/>
+<div class="w-7 h-7 rounded-full border-2 border-white bg-surface-container-high flex items-center justify-center font-label-md text-[10px]">+6</div>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<button class="flex-1 py-2.5 px-2 bg-primary text-white rounded-xl font-label-md hover:bg-primary-container transition-colors active:scale-95">Détails</button>
+<button class="flex-1 py-2.5 px-2 border border-primary text-primary rounded-xl font-label-md hover:bg-surface-container-low transition-colors active:scale-95">Modifier</button>
+<button class="flex-1 py-2.5 px-2 text-error font-label-md hover:bg-error-container/20 rounded-xl transition-colors active:scale-95">Annuler</button>
+</div>
+</div>
+<!-- Offer Card 2: Assigned -->
+<div class="bg-surface-container-lowest border border-[#E9ECEF] rounded-xl p-card-inner-padding shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
+<div class="flex justify-between items-start mb-3">
+<span class="px-3 py-1 rounded-full bg-primary/12 text-primary font-label-md text-[10px] uppercase tracking-wider">Assignée</span>
+<div class="text-right">
+<p class="font-currency-display text-currency-display text-primary">850 DH</p>
+<p class="font-label-md text-[10px] text-on-surface-variant">Prix final</p>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm mb-4">Livraison mobilier de bureau</h3>
+<div class="relative pl-6 mb-4">
+<div class="route-line"></div>
+<div class="mb-3 relative">
+<span class="absolute -left-[22px] top-1 w-3 h-3 rounded-full bg-primary border-2 border-white"></span>
+<p class="font-body-md font-semibold">Rabat, Agdal</p>
+</div>
+<div class="relative">
+<span class="absolute -left-[22px] top-1 w-3 h-3 rounded-full bg-secondary border-2 border-white"></span>
+<p class="font-body-md font-semibold">Tanger, Marina</p>
+</div>
+</div>
+<div class="flex items-center gap-3 p-3 bg-surface-container-low rounded-xl mb-4 border border-outline-variant/20">
+<img alt="Mohamed A." class="w-10 h-10 rounded-full object-cover" data-alt="A professional headshot of a Moroccan driver with a friendly expression, wearing a high-visibility vest. The setting is outdoors in soft evening light, with a clean white van in the background. The image is crisp, modern, and trustworthy, adhering to the premium corporate logistics aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiBxi21zPXI8qxh8Sn5XeeET0dm-v4xomQTjUZHs0Sl--MeW2lR_OPRpCwFUMGc2gqn3cCyThEP3s5YTaH0Onx-wA4VKvHZQLHNS2NRzOMWINHunH5tdF2a6VpYtvotxO8uMiajhKHFnw3ZhntlC8mSTmBoFPtaTHGZvtZ6STeOMu9r6MBTaLlSAJiNZ3GJsybQCZF12Yo3Roxhqs8eFHDlZEJH0C_kUwhfM4ORF_T3WsBGH9PFmXp-ro_zJns57PYcTSQn_XmHScH"/>
+<div class="flex-1">
+<p class="font-body-md font-bold">Mohamed Alami</p>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-on-surface-variant">4.9 (124 courses)</span>
+</div>
+</div>
+<button class="p-2 bg-[#25D366] text-white rounded-full active:scale-95 shadow-md">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24"><path d="M12.031 6.172c-2.135 0-4.143.83-5.653 2.34-3.115 3.116-3.115 8.188 0 11.303l1.107-1.106c-2.505-2.506-2.505-6.586 0-9.091 1.218-1.217 2.836-1.888 4.546-1.888 1.71 0 3.328.671 4.545 1.888l1.107-1.106c-1.511-1.51-3.518-2.34-5.652-2.34zm0 2.298c-1.517 0-2.943.59-4.016 1.663-2.215 2.215-2.215 5.817 0 8.032l1.106-1.106c-1.605-1.605-1.605-4.215 0-5.82 1.074-1.073 2.5-1.662 4.017-1.662 1.517 0 2.943.59 4.017 1.662l1.106-1.106c-1.073-1.073-2.5-1.663-4.017-1.663zM12 10.47c-2.616 0-4.737 2.121-4.737 4.737 0 1.272.502 2.428 1.319 3.284l.001.001c.85.901 2.062 1.453 3.417 1.453 2.616 0 4.737-2.121 4.737-4.737S14.616 10.47 12 10.47z"></path></svg>
+</button>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 py-3 px-4 bg-primary text-white rounded-xl font-label-md active:scale-95">Suivre le trajet</button>
+</div>
+</div>
+<!-- Empty State (Hidden by default, shown if list is empty) -->
+<div class="hidden flex-col items-center justify-center py-20 text-center px-8" id="empty-state">
+<div class="w-20 h-20 bg-surface-container-high rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-outline text-[40px]">inventory_2</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Vous n’avez pas encore créé d’offre.</h3>
+<p class="font-body-md text-on-surface-variant mb-8">Commencez par publier votre première demande de transport pour recevoir des offres de nos transporteurs certifiés.</p>
+<button class="w-full max-w-xs py-3.5 bg-primary text-white rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-transform">
+<span class="material-symbols-outlined">add</span>
+                    Créer une offre
+                </button>
+</div>
+</div>
+</main>
+<!-- FAB for AI Assistant -->
+<button class="fixed bottom-24 right-6 w-14 h-14 bg-gradient-to-tr from-primary to-primary-container text-white rounded-full shadow-2xl flex items-center justify-center z-50 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[28px]">smart_toy</span>
+</button>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 pb-safe bg-surface border-t border-outline-variant shadow-[0_-4px_12px_rgba(0,0,0,0.05)] z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary/5 transition-colors p-1 rounded-lg" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md">Accueil</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary font-bold hover:bg-primary/5 transition-colors p-1 rounded-lg" href="#">
+<span class="material-symbols-outlined">local_shipping</span>
+<span class="font-label-md text-label-md">Offres</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary/5 transition-colors p-1 rounded-lg" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="font-label-md text-label-md">Candidatures</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary/5 transition-colors p-1 rounded-lg" href="#">
+<span class="material-symbols-outlined">fire_truck</span>
+<span class="font-label-md text-label-md">Véhicules</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary/5 transition-colors p-1 rounded-lg" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md">Profil</span>
+</a>
+</nav>
+<script>
+        // Simple Interaction Logic
+        document.querySelectorAll('.active\\:scale-95').forEach(button => {
+            button.addEventListener('mousedown', () => button.classList.add('scale-95'));
+            button.addEventListener('mouseup', () => button.classList.remove('scale-95'));
+            button.addEventListener('mouseleave', () => button.classList.remove('scale-95'));
+        });
+
+        // Tab Switching Simulation
+        const tabs = document.querySelectorAll('.font-label-md.whitespace-nowrap');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => {
+                    t.classList.remove('active-tab', 'text-primary');
+                    t.classList.add('text-on-surface-variant');
+                });
+                tab.classList.add('active-tab', 'text-primary');
+                tab.classList.remove('text-on-surface-variant');
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mot de passe oublié - E-Samsar</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#82d3de",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#bec8ca",
+                        "tertiary-fixed": "#ffdcc5",
+                        "on-tertiary-container": "#ffd7bd",
+                        "secondary": "#895100",
+                        "background": "#f7fafa",
+                        "secondary-container": "#fd9d1a",
+                        "inverse-surface": "#2d3132",
+                        "on-surface-variant": "#3e494a",
+                        "tertiary": "#713d10",
+                        "primary": "#00535b",
+                        "surface-variant": "#e0e3e3",
+                        "on-primary-fixed-variant": "#004f56",
+                        "inverse-on-surface": "#eef1f2",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#181c1d",
+                        "surface-bright": "#f7fafa",
+                        "inverse-primary": "#82d3de",
+                        "surface-dim": "#d7dadb",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#2c1700",
+                        "outline": "#6f797a",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f1f4f4",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e0e3e3",
+                        "surface-container-high": "#e6e9e9",
+                        "on-tertiary-fixed-variant": "#6d390c",
+                        "on-tertiary-fixed": "#301400",
+                        "on-secondary-container": "#663b00",
+                        "on-primary-fixed": "#001f23",
+                        "secondary-fixed": "#ffdcbc",
+                        "primary-container": "#006d77",
+                        "tertiary-fixed-dim": "#ffb783",
+                        "on-primary-container": "#9becf7",
+                        "on-error": "#ffffff",
+                        "surface": "#f7fafa",
+                        "tertiary-container": "#8e5426",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#9ff0fb",
+                        "on-surface": "#181c1d",
+                        "surface-container": "#ebeeef",
+                        "secondary-fixed-dim": "#ffb86b",
+                        "on-secondary-fixed-variant": "#683d00",
+                        "surface-tint": "#006972"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-gap": "0.75rem",
+                        "section-gap": "1.5rem",
+                        "container-padding": "1rem",
+                        "card-inner-padding": "1rem"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "currency-display": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["22px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "currency-display": ["20px", {"lineHeight": "24px", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f7fafa;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md">
+<!-- Top App Bar (Simplified for transactional screen) -->
+<header class="fixed top-0 w-full z-50 bg-surface flex justify-between items-center px-container-padding h-16 w-full shadow-sm">
+<button aria-label="Retour" class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-surface-container-low transition-colors active:scale-95" onclick="window.history.back()">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">E-Samsar</span>
+<div class="w-10"></div> <!-- Spacer for balance -->
+</header>
+<main class="flex-grow flex flex-col items-center justify-center px-container-padding pt-16 pb-8">
+<div class="w-full max-w-md bg-surface-container-lowest p-8 rounded-xl border border-outline-variant shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
+<!-- Branding/Icon Section -->
+<div class="flex flex-col items-center mb-section-gap">
+<div class="w-20 h-20 bg-primary/5 flex items-center justify-center rounded-full mb-stack-gap">
+<span class="material-symbols-outlined text-primary text-[48px]" style="font-variation-settings: 'FILL' 1;">lock_person</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface text-center">Mot de passe oublié</h1>
+<p class="font-body-md text-body-md text-on-surface-variant text-center mt-2 max-w-[280px]">
+                    Saisissez votre e-mail pour recevoir un lien de réinitialisation sécurisé.
+                </p>
+</div>
+<!-- Form Section -->
+<form class="flex flex-col gap-section-gap" id="resetForm" onsubmit="handleReset(event)">
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface-variant ml-1" for="email">Adresse e-mail</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-4 text-outline">mail</span>
+<input class="w-full h-12 pl-12 pr-4 bg-surface border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all font-body-md" id="email" name="email" placeholder="nom@exemple.com" required="" type="email"/>
+</div>
+</div>
+<button class="w-full h-14 bg-primary text-on-primary font-headline-sm text-headline-sm rounded-xl shadow-sm hover:opacity-90 active:scale-[0.98] transition-all flex items-center justify-center gap-2" type="submit">
+<span>Envoyer le lien de réinitialisation</span>
+<span class="material-symbols-outlined">send</span>
+</button>
+</form>
+<!-- Success State (Hidden by default) -->
+<div class="hidden flex flex-col items-center text-center animate-in fade-in slide-in-from-bottom-4 duration-500" id="successMessage">
+<div class="w-16 h-16 bg-secondary-container/20 text-secondary flex items-center justify-center rounded-full mb-4">
+<span class="material-symbols-outlined text-[32px]">mark_email_read</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface mb-6">
+                    Si cet e-mail existe, un lien de réinitialisation a été envoyé.
+                </p>
+<div class="w-full h-[1px] bg-outline-variant mb-6"></div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    Vous n'avez rien reçu ? Vérifiez vos spams ou <button class="text-primary font-semibold hover:underline" onclick="location.reload()">réessayez</button>.
+                </p>
+</div>
+<!-- Footer Action -->
+<div class="mt-section-gap text-center" id="footerLinks">
+<a class="font-label-md text-label-md text-primary font-bold flex items-center justify-center gap-1 hover:opacity-70 transition-opacity" href="#">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+                    Retour à la connexion
+                </a>
+</div>
+</div>
+<!-- Decorative Background Elements -->
+<div class="fixed -z-10 top-0 right-0 w-1/3 h-1/2 opacity-10">
+<img alt="Logistics decoration" class="w-full h-full object-cover rounded-bl-[100px]" data-alt="A sophisticated macro shot of professional logistics documentation and a digital tablet showing transit routes. The scene is bathed in soft, high-key morning light, creating a clean, corporate atmosphere. The color palette is dominated by professional teals and crisp whites, evoking a sense of reliability and modern efficiency in a high-end Moroccan transport marketplace." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4kePCWNuGDahQXL0fkMfXlaeWbRnqJa_gqe58OW_pyRiC2dhNEHdIdpi8YyjcO7_4IMSbCWayqHIvQ0LxmI1SilqZLgaq5PCa8snou8sxWau_CoWGxZ63TzpdBa12-DBiJvmSJiWru4dcVMG1lsD3osZNmVRPrtlZN3A_tteDsZ2rNOeseey8G5PAawCpQadxeoooM37FkRM8ZiOVWPX7CH1x_w6eSN58dNLhJ27c-3nLdAZ46J29QP7v7iQmWhCfGVxjCl5qwyWP"/>
+</div>
+</main>
+<script>
+        function handleReset(event) {
+            event.preventDefault();
+            const form = document.getElementById('resetForm');
+            const success = document.getElementById('successMessage');
+            const header = document.querySelector('h1').parentElement;
+            
+            // Artificial delay to simulate network
+            const submitBtn = form.querySelector('button');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">progress_activity</span>';
+
+            setTimeout(() => {
+                form.classList.add('hidden');
+                header.classList.add('hidden');
+                success.classList.remove('hidden');
+            }, 1200);
+        }
+
+        // Ripple Effect for button
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                let x = e.clientX - e.target.offsetLeft;
+                let y = e.clientY - e.target.offsetTop;
+                let ripples = document.createElement('span');
+                ripples.style.left = x + 'px';
+                ripples.style.top = y + 'px';
+                this.appendChild(ripples);
+                setTimeout(() => { ripples.remove() }, 1000);
+            });
+        });
+    </script>
+</body></html>

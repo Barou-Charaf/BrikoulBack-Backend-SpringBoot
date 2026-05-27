@@ -7,7 +7,7 @@ import com.esemsar.backend.repositories.EmailVerificationTokenRepository;
 import com.esemsar.backend.repositories.UserRepository;
 import com.esemsar.backend.services.EmailVerificationService;
 import java.time.LocalDateTime;
-import java.util.UUID;
+import java.util.concurrent.ThreadLocalRandom;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
@@ -42,7 +42,7 @@ public class EmailVerificationServiceImpl implements EmailVerificationService {
     @Transactional
     public void createAndSendToken(User user) {
         EmailVerificationToken token = EmailVerificationToken.builder()
-            .token(UUID.randomUUID().toString())
+            .token(generateSixDigitCode())
             .expiresAt(LocalDateTime.now().plusHours(24))
             .user(user)
             .build();
@@ -50,13 +50,20 @@ public class EmailVerificationServiceImpl implements EmailVerificationService {
         log.info("Email verification token for {}: {}", user.getEmail(), token.getToken());
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(user.getEmail());
-        message.setSubject("Verify your BrikoulBack account");
+        message.setSubject("Verify your E-Samsar account");
         String verificationUrl = verificationUrlTemplate.replace("{token}", token.getToken());
-        message.setText("Verify your email: " + verificationUrl
-            + "\n\nIf you are testing from Swagger, call GET /api/auth/verify-email?token=" + token.getToken()
-            + "\nIf you are using the mobile app, the app can call POST /api/auth/verify-email with {\"token\":\""
-            + token.getToken() + "\"}.");
-        mailSender.send(message);
+        message.setText("Your E-Samsar verification code is: " + token.getToken()
+            + "\n\nSwagger test link: " + verificationUrl
+            + "\nMobile app request: POST /api/auth/verify-email with {\"token\":\"" + token.getToken() + "\"}.");
+        try {
+            mailSender.send(message);
+        } catch (RuntimeException ex) {
+            log.warn("Verification email could not be sent to {}. Keeping token valid for local testing.", user.getEmail(), ex);
+        }
+    }
+
+    private String generateSixDigitCode() {
+        return String.format("%06d", ThreadLocalRandom.current().nextInt(1_000_000));
     }
 
     @Override

@@ -9,6 +9,7 @@ public record UserResponse(
     String lastName,
     String email,
     String phone,
+    String profileImageUrl,
     Role role,
     boolean enabled,
     boolean emailVerified,

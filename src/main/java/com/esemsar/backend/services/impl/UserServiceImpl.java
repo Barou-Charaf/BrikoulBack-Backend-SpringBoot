@@ -46,6 +46,7 @@ public class UserServiceImpl implements UserService {
         user.setFirstName(request.firstName());
         user.setLastName(request.lastName());
         user.setPhone(request.phone());
+        user.setProfileImageUrl(request.profileImageUrl());
         return userMapper.toResponse(userRepository.save(user));
     }
 

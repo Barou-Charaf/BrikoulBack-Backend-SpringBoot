@@ -172,4 +172,5 @@ com\esemsar\backend\dtos\requests\UpdateProfileRequest.class
 com\esemsar\backend\dtos\responses\AiChatResponse.class
 com\esemsar\backend\dtos\requests\VerifyEmailRequest.class
 com\esemsar\backend\enums\Role.class
+com\esemsar\backend\config\ImageStorageSchemaConfig.class
 com\esemsar\backend\repositories\UserRepository.class

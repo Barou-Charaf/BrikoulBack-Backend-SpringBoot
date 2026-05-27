@@ -1,0 +1,244 @@
+<!DOCTYPE html><html class="light" lang="fr"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(224, 227, 227, 0.5);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#ffdcbc",
+                        "on-error": "#ffffff",
+                        "surface": "#f7fafa",
+                        "secondary-fixed-dim": "#ffb86b",
+                        "inverse-primary": "#82d3de",
+                        "inverse-surface": "#2d3132",
+                        "inverse-on-surface": "#eef1f2",
+                        "tertiary-fixed": "#ffdcc5",
+                        "tertiary-fixed-dim": "#ffb783",
+                        "surface-container-high": "#e6e9e9",
+                        "primary-fixed": "#9ff0fb",
+                        "outline": "#6f797a",
+                        "primary-fixed-dim": "#82d3de",
+                        "error": "#ba1a1a",
+                        "primary": "#00535b",
+                        "tertiary-container": "#8e5426",
+                        "surface-bright": "#f7fafa",
+                        "on-primary": "#ffffff",
+                        "background": "#f7fafa",
+                        "on-secondary-fixed": "#2c1700",
+                        "on-surface": "#181c1d",
+                        "on-secondary-fixed-variant": "#683d00",
+                        "surface-tint": "#006972",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#713d10",
+                        "on-secondary-container": "#663b00",
+                        "on-primary-fixed": "#001f23",
+                        "primary-container": "#006d77",
+                        "secondary-container": "#fd9d1a",
+                        "on-primary-fixed-variant": "#004f56",
+                        "surface-variant": "#e0e3e3",
+                        "surface-container-low": "#f1f4f4",
+                        "on-background": "#181c1d",
+                        "outline-variant": "#bec8ca",
+                        "on-tertiary-fixed": "#301400",
+                        "on-tertiary-fixed-variant": "#6d390c",
+                        "on-primary-container": "#9becf7",
+                        "on-tertiary-container": "#ffd7bd",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#d7dadb",
+                        "surface-container-highest": "#e0e3e3",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#3e494a",
+                        "surface-container": "#ebeeef",
+                        "on-tertiary": "#ffffff",
+                        "secondary": "#895100",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-padding": "1rem",
+                        "stack-gap": "0.75rem",
+                        "section-gap": "1.5rem",
+                        "card-inner-padding": "1rem"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "currency-display": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "headline-md": ["22px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "currency-display": ["20px", {"lineHeight": "24px", "fontWeight": "700"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- Top App Bar (As per JSON, but simplified for Registration Flow - No Nav) -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-container-padding h-16 bg-surface border-b border-outline-variant shadow-sm">
+<div class="flex items-center gap-4">
+<button class="text-primary transition-all duration-200 active:scale-95" onclick="history.back()">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-headline-lg text-headline-lg text-primary">E-Samsar</h1>
+</div>
+<div class="text-primary">
+<span class="material-symbols-outlined">help_outline</span>
+</div>
+</header>
+<main class="pt-24 pb-12 px-container-padding max-w-lg mx-auto">
+<section class="mb-section-gap">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Créer un compte</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Rejoignez la première plateforme de transport logistique au Maroc.</p>
+</section>
+<!-- Role Selector -->
+<section class="mb-section-gap">
+<p class="font-label-md text-label-md text-on-surface-variant uppercase mb-stack-gap">Je suis un :</p>
+<div class="grid grid-cols-2 gap-4">
+<button class="role-card relative flex flex-col items-center justify-center p-card-inner-padding border border-outline-variant bg-surface-container-lowest rounded-xl shadow-sm transition-all duration-300 active:scale-95 hover:border-primary-container group" id="role-shipper" onclick="selectRole('shipper')">
+<div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center text-primary mb-2 group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">package_2</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface">Expéditeur</span>
+<div class="role-check absolute top-2 right-2 opacity-0 text-primary">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+</button>
+<button class="role-card relative flex flex-col items-center justify-center p-card-inner-padding border border-outline-variant bg-surface-container-lowest rounded-xl shadow-sm transition-all duration-300 active:scale-95 hover:border-primary-container group" id="role-driver" onclick="selectRole('driver')">
+<div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center text-primary mb-2 group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface">Chauffeur</span>
+<div class="role-check absolute top-2 right-2 opacity-0 text-primary">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+</button>
+</div>
+</section>
+<!-- Registration Form -->
+<form class="space-y-stack-gap" onsubmit="return false;">
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-1">
+<label class="font-label-md text-label-md text-on-surface-variant">Prénom</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">person</span>
+<input class="w-full pl-10 pr-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="Ahmed" type="text">
+</div>
+</div>
+<div class="space-y-1">
+<label class="font-label-md text-label-md text-on-surface-variant">Nom</label>
+<input class="w-full px-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="Mansouri" type="text">
+</div>
+</div>
+<div class="space-y-1">
+<label class="font-label-md text-label-md text-on-surface-variant">Adresse e-mail</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">mail</span>
+<input class="w-full pl-10 pr-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="contact@exemple.ma" type="email">
+</div>
+</div>
+<div class="space-y-1">
+<label class="font-label-md text-label-md text-on-surface-variant">Téléphone</label>
+<div class="relative flex">
+<div class="flex items-center gap-1 px-3 bg-surface-container-low border border-r-0 border-outline-variant rounded-l-xl text-on-surface-variant font-label-md">
+<img alt="Morocco Flag" class="w-5 h-3.5 object-cover rounded-sm" data-alt="A small, crisp icon of the Moroccan flag featuring a red background and a green pentagram star in the center. The flag is presented in a clean, professional vector style with high-resolution detail, suitable for a mobile application user interface. The lighting is neutral and even, ensuring high legibility against a light mode surface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7nlNGEyRYe00cdYxbPMnv-1f8TyaLj1qu8_ND3zckEHe1lTwdPGmDx-B6NVcH2blhNw5vdLSvPoddhQSAHus42Rj3G9GaNjYUUNlv-h7lVIHpqyg08PUPUOs4oCXhK8_gtAGnvEPzFvsOvruVflzWWiTxaAdM4hYTgujgnI39K0IP4DXbNYgCYLrLpR9WmGKMbv_5mAlCEc_YyCcfhYCTS7C4gc6kpH7WAeErxTuhWNtC7spvVz6ruT1K-TLs95cqBVlNffOn6izU">
+<span>+212</span>
+</div>
+<input class="w-full px-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-r-xl focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="6 12 34 56 78" type="tel">
+</div>
+</div>
+<div class="space-y-1">
+<label class="font-label-md text-label-md text-on-surface-variant">Mot de passe</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">lock</span>
+<input class="w-full pl-10 pr-12 py-3 bg-surface-container-lowest border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all" placeholder="••••••••" type="password">
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-outline hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</div>
+</div>
+<div class="flex items-start gap-3 pt-2">
+<input class="mt-1 w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" id="terms" type="checkbox">
+<label class="font-body-md text-body-md text-on-surface-variant" for="terms">
+                    J'accepte les <a class="text-primary font-bold hover:underline" href="#">Conditions d'utilisation</a> et la <a class="text-primary font-bold hover:underline" href="#">Politique de confidentialité</a> d'E-Samsar.
+                </label>
+</div>
+<div class="pt-6">
+<button class="w-full py-4 bg-primary text-on-primary font-headline-sm text-headline-sm rounded-xl shadow-lg shadow-primary/20 hover:bg-primary-container transition-all duration-300 active:scale-95 flex items-center justify-center gap-2" type="submit">
+                    Créer mon compte
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</form>
+<p class="mt-section-gap text-center font-body-md text-body-md text-on-surface-variant">
+            Vous avez déjà un compte ? 
+            <a class="text-primary font-bold hover:underline" href="#">Se connecter</a>
+</p>
+</main>
+<!-- Visual Background Element -->
+<div class="fixed bottom-0 left-0 w-full h-1/3 -z-10 bg-gradient-to-t from-surface-container-low to-transparent opacity-50"></div>
+<script>
+        function selectRole(role) {
+            // Reset styles
+            document.querySelectorAll('.role-card').forEach(card => {
+                card.classList.remove('border-primary', 'bg-primary-container/10', 'ring-2', 'ring-primary/20');
+                card.querySelector('.role-check').classList.add('opacity-0');
+            });
+
+            // Apply active styles
+            const selectedCard = document.getElementById('role-' + role);
+            selectedCard.classList.add('border-primary', 'bg-primary-container/10', 'ring-2', 'ring-primary/20');
+            selectedCard.querySelector('.role-check').classList.remove('opacity-0');
+            selectedCard.querySelector('.role-check').classList.add('opacity-100');
+        }
+
+        // Initialize with default role
+        window.onload = () => selectRole('shipper');
+
+        // Smooth reveal for form elements
+        document.querySelectorAll('form > div').forEach((el, index) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(10px)';
+            setTimeout(() => {
+                el.style.transition = 'all 0.4s ease-out';
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            }, 100 * index);
+        });
+    </script>
+</body></html>

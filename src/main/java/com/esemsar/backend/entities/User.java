@@ -50,6 +50,9 @@ public class User {
     @Column(nullable = false)
     private String phone;
 
+    @Column(columnDefinition = "LONGTEXT")
+    private String profileImageUrl;
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Role role;

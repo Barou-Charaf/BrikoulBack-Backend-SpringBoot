@@ -19,7 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Component
 @Slf4j
 public class TestDataSeeder implements CommandLineRunner {
-    private static final String DRIVER_PASSWORD = "diver1234567";
+    private static final String DRIVER_PASSWORD = "driver1234567";
     private static final String SHIPPER_PASSWORD = "shipper1234567";
 
     private final UserRepository userRepository;
@@ -54,6 +54,13 @@ public class TestDataSeeder implements CommandLineRunner {
         for (int i = 1; i <= 20; i++) {
             String email = "driver" + i + "@gmail.com";
             if (userRepository.existsByEmail(email)) {
+                userRepository.findByEmail(email).ifPresent(user -> {
+                    user.setPassword(passwordEncoder.encode(DRIVER_PASSWORD));
+                    user.setEnabled(true);
+                    user.setEmailVerified(true);
+                    user.setAccountLocked(false);
+                    userRepository.save(user);
+                });
                 continue;
             }
 
@@ -94,6 +101,13 @@ public class TestDataSeeder implements CommandLineRunner {
         for (int i = 1; i <= 5; i++) {
             String email = "shipper" + i + "@gmail.com";
             if (userRepository.existsByEmail(email)) {
+                userRepository.findByEmail(email).ifPresent(user -> {
+                    user.setPassword(passwordEncoder.encode(SHIPPER_PASSWORD));
+                    user.setEnabled(true);
+                    user.setEmailVerified(true);
+                    user.setAccountLocked(false);
+                    userRepository.save(user);
+                });
                 continue;
             }
 

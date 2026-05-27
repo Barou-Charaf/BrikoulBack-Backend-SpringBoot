@@ -33,6 +33,7 @@ public class TruckServiceImpl implements TruckService {
         Truck truck = Truck.builder()
             .brand(request.brand())
             .model(request.model())
+            .imageUrl(request.imageUrl())
             .plateNumber(request.plateNumber())
             .vehicleType(request.vehicleType())
             .capacityKg(request.capacityKg())
@@ -49,6 +50,11 @@ public class TruckServiceImpl implements TruckService {
     }
 
     @Override
+    public List<TruckResponse> byDriver(Long driverProfileId) {
+        return truckRepository.findByDriverProfileId(driverProfileId).stream().map(truckMapper::toResponse).toList();
+    }
+
+    @Override
     public TruckResponse get(Long id) {
         Truck truck = findOwned(id);
         return truckMapper.toResponse(truck);
@@ -60,6 +66,7 @@ public class TruckServiceImpl implements TruckService {
         Truck truck = findOwned(id);
         truck.setBrand(request.brand());
         truck.setModel(request.model());
+        truck.setImageUrl(request.imageUrl());
         truck.setPlateNumber(request.plateNumber());
         truck.setVehicleType(request.vehicleType());
         truck.setCapacityKg(request.capacityKg());

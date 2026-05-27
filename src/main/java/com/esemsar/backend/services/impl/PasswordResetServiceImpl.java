@@ -7,7 +7,8 @@ import com.esemsar.backend.repositories.PasswordResetTokenRepository;
 import com.esemsar.backend.repositories.UserRepository;
 import com.esemsar.backend.services.PasswordResetService;
 import java.time.LocalDateTime;
-import java.util.UUID;
+import java.util.concurrent.ThreadLocalRandom;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Slf4j
 public class PasswordResetServiceImpl implements PasswordResetService {
     private final PasswordResetTokenRepository tokenRepository;
     private final UserRepository userRepository;
@@ -41,16 +43,27 @@ public class PasswordResetServiceImpl implements PasswordResetService {
     @Transactional
     public void createAndSendToken(User user) {
         PasswordResetToken token = PasswordResetToken.builder()
-            .token(UUID.randomUUID().toString())
+            .token(generateSixDigitCode())
             .expiresAt(LocalDateTime.now().plusHours(1))
             .user(user)
             .build();
         tokenRepository.save(token);
+        log.info("Password reset token for {}: {}", user.getEmail(), token.getToken());
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(user.getEmail());
-        message.setSubject("Reset your BrikoulBack password");
-        message.setText("Reset your password: " + frontendUrl + "/reset-password?token=" + token.getToken());
-        mailSender.send(message);
+        message.setSubject("Reset your E-Samsar password");
+        message.setText("Your E-Samsar password reset code is: " + token.getToken()
+            + "\n\nSwagger test link: " + frontendUrl + "/reset-password?token=" + token.getToken()
+            + "\nMobile app request: POST /api/auth/reset-password with the code and your new password.");
+        try {
+            mailSender.send(message);
+        } catch (RuntimeException ex) {
+            log.warn("Password reset email could not be sent to {}. Keeping token valid for local testing.", user.getEmail(), ex);
+        }
+    }
+
+    private String generateSixDigitCode() {
+        return String.format("%06d", ThreadLocalRandom.current().nextInt(1_000_000));
     }
 
     @Override
