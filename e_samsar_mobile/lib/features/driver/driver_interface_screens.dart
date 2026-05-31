@@ -585,9 +585,9 @@ class _DriverPageShell extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
-        title: Text(title, style: const TextStyle(color: AppColors.primary, fontWeight: FontWeight.w900)),
-        backgroundColor: AppColors.surface,
-        foregroundColor: AppColors.primary,
+        title: Text(title, style: const TextStyle(color: AppColors.textWhite, fontWeight: FontWeight.w900)),
+        backgroundColor: AppColors.primaryContainer,
+        foregroundColor: AppColors.textWhite,
         elevation: 0,
         actions: actions,
       ),

@@ -4,7 +4,6 @@ import '../../core/app_state.dart';
 import '../../core/app_theme.dart';
 import '../../core/e_samsar_api.dart';
 import '../../core/models.dart';
-import '../../shared/actions.dart';
 import '../../shared/ui.dart';
 import 'driver_screens.dart';
 
