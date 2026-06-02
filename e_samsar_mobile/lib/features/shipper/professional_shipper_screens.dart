@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../core/api_client.dart';
@@ -101,6 +102,7 @@ class _ProfessionalShipperHomeScreenState extends State<ProfessionalShipperHomeS
               _ShipperHero(shipper: shipper),
               const SizedBox(height: 18),
               Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(child: _MetricTile(icon: Icons.star, value: shipper.averageRating.toStringAsFixed(1), label: 'Note', color: AppColors.accent)),
                   const SizedBox(width: 10),
@@ -401,19 +403,51 @@ class _ProfessionalShipperDriversScreenState extends State<ProfessionalShipperDr
                 TextField(controller: city, textInputAction: TextInputAction.search, onSubmitted: (_) => _search(), decoration: const InputDecoration(labelText: 'Ville', prefixIcon: Icon(Icons.location_on_outlined))),
                 const SizedBox(height: 10),
                 Row(
-                  children: [
-                    Expanded(
-                      child: DropdownButtonFormField<String>(
-                        value: vehicleType,
-                        decoration: const InputDecoration(labelText: 'Véhicule'),
-                        items: _vehicleTypes.map((value) => DropdownMenuItem(value: value, child: Text(vehicleFr(value)))).toList(),
-                        onChanged: (value) => setState(() => vehicleType = value),
+                crossAxisAlignment: CrossAxisAlignment.start, // Aligne les champs en haut
+                children: [
+                  Expanded(
+                    child: DropdownButtonFormField<String>(
+                      value: vehicleType,
+                      isExpanded: true, // IMPORTANT : Empêche le débordement horizontal du texte
+                      icon: const Icon(Icons.arrow_drop_down, color: AppColors.primary),
+                      style: const TextStyle(fontSize: 14, color: AppColors.text, overflow: TextOverflow.ellipsis),
+                      decoration: InputDecoration(
+                        labelText: 'Véhicule',
+                        labelStyle: const TextStyle(fontSize: 13),
+                        contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 15),
+                        // Utilise le style de bordure du thème
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(16),
+                          borderSide: const BorderSide(color: AppColors.outline),
+                        ),
+                      ),
+                      items: _vehicleTypes.map((value) => DropdownMenuItem(
+                        value: value, 
+                        child: Text(vehicleFr(value), style: const TextStyle(fontSize: 13))
+                      )).toList(),
+                      onChanged: (value) => setState(() => vehicleType = value),
+                    ),
+                  ),
+                  const SizedBox(width: 12), // Un peu plus d'espace entre les deux
+                  Expanded(
+                    child: TextField(
+                      controller: capacity,
+                      keyboardType: TextInputType.number,
+                      style: const TextStyle(fontSize: 14),
+                      decoration: InputDecoration(
+                        labelText: 'Capacité min',
+                        labelStyle: const TextStyle(fontSize: 13),
+                        prefixIcon: const Icon(Icons.scale_outlined, size: 20, color: AppColors.primary),
+                        contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 15),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(16),
+                          borderSide: const BorderSide(color: AppColors.outline),
+                        ),
                       ),
                     ),
-                    const SizedBox(width: 10),
-                    Expanded(child: TextField(controller: capacity, keyboardType: TextInputType.number, decoration: const InputDecoration(labelText: 'Capacité min', prefixIcon: Icon(Icons.scale_outlined)))),
-                  ],
-                ),
+                  ),
+                ],
+              ),
                 const SizedBox(height: 12),
                 Row(
                   children: [
@@ -978,18 +1012,62 @@ class _ShipperPageShell extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
-      appBar: AppBar(
-        title: Text(title, style: const TextStyle(color: AppColors.primary, fontWeight: FontWeight.w900)),
-        backgroundColor: AppColors.surface,
-        foregroundColor: AppColors.primary,
-        elevation: 0,
-        actions: actions,
-      ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.fromLTRB(18, 18, 18, 96),
-          child: child,
-        ),
+      body: Stack(
+        children: [
+          Container(
+            height: MediaQuery.of(context).size.height * 0.28,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [AppColors.primaryDark, AppColors.primary],
+              ),
+              borderRadius: BorderRadius.vertical(bottom: Radius.circular(40)),
+            ),
+          ),
+          SafeArea(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
+                  child: Row(
+                    children: [
+                      if (Navigator.canPop(context))
+                        IconButton(
+                          icon: const Icon(Icons.arrow_back, color: Colors.white),
+                          onPressed: () => Navigator.pop(context),
+                        ),
+                      Expanded(
+                        child: Text(
+                          title,
+                          style: GoogleFonts.inter(
+                            color: Colors.white,
+                            fontSize: 22,
+                            fontWeight: FontWeight.w800,
+                          ),
+                        ),
+                      ),
+                      if (actions != null)
+                        ...actions!.map((action) => Theme(
+                              data: Theme.of(context).copyWith(
+                                iconTheme: const IconThemeData(color: Colors.white),
+                              ),
+                              child: action,
+                            )),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: SingleChildScrollView(
+                    padding: const EdgeInsets.fromLTRB(18, 10, 18, 96),
+                    child: child,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -1019,26 +1097,58 @@ class _ShipperHero extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(22),
       decoration: BoxDecoration(
-        color: AppColors.primary,
-        borderRadius: BorderRadius.circular(22),
-        boxShadow: const [BoxShadow(color: Color(0x2200535B), blurRadius: 18, offset: Offset(0, 10))],
+        color: AppColors.surface,
+        borderRadius: BorderRadius.circular(24),
+        border: Border.all(color: AppColors.outline),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.08),
+            blurRadius: 24,
+            offset: const Offset(0, 12),
+          )
+        ],
       ),
       child: Row(
         children: [
-          _Avatar(user: shipper.user, radius: 38, fallbackIcon: Icons.business_outlined),
+          _Avatar(user: shipper.user, radius: 38, fallbackIcon: Icons.business_outlined, light: true),
           const SizedBox(width: 16),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(shipper.user.fullName.isEmpty ? 'Expéditeur' : shipper.user.fullName, style: const TextStyle(color: Colors.white, fontSize: 23, fontWeight: FontWeight.w900)),
+                Text(
+                  shipper.user.fullName.isEmpty ? 'Expéditeur' : shipper.user.fullName,
+                  style: GoogleFonts.inter(color: AppColors.primary, fontSize: 22, fontWeight: FontWeight.w900),
+                ),
                 const SizedBox(height: 4),
-                Text(shipper.companyName.isEmpty ? 'Entreprise non renseignée' : shipper.companyName, style: TextStyle(color: Colors.white.withOpacity(.82))),
-                const SizedBox(height: 8),
+                Text(
+                  shipper.companyName.isEmpty ? 'Entreprise non renseignée' : shipper.companyName,
+                  style: GoogleFonts.inter(color: AppColors.muted, fontWeight: FontWeight.w600),
+                ),
+                const SizedBox(height: 12),
                 Row(children: [
-                  const Icon(Icons.star, color: AppColors.accent, size: 18),
-                  const SizedBox(width: 5),
-                  Text('${shipper.averageRating.toStringAsFixed(1)} · ${shipper.completedOffers} offres', style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w800)),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                    decoration: BoxDecoration(
+                      color: AppColors.accent.withOpacity(0.12),
+                      borderRadius: BorderRadius.circular(99),
+                    ),
+                    child: Row(
+                      children: [
+                        const Icon(Icons.star, color: AppColors.accent, size: 16),
+                        const SizedBox(width: 4),
+                        Text(
+                          shipper.averageRating.toStringAsFixed(1),
+                          style: GoogleFonts.inter(color: AppColors.accent, fontWeight: FontWeight.w800, fontSize: 13),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  Text(
+                    '${shipper.completedOffers} offres',
+                    style: GoogleFonts.inter(color: AppColors.muted, fontWeight: FontWeight.w700, fontSize: 13),
+                  ),
                 ]),
               ],
             ),
@@ -1425,16 +1535,36 @@ class _MetricTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 96,
-      padding: const EdgeInsets.all(12),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
       decoration: _cardDecoration(),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon, color: color, size: 24),
-          const SizedBox(height: 6),
-          FittedBox(child: Text(value, maxLines: 1, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w900))),
-          Text(label, maxLines: 1, overflow: TextOverflow.ellipsis, style: const TextStyle(color: AppColors.muted, fontSize: 12)),
+          Container(
+            padding: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              color: color.withOpacity(0.12),
+              shape: BoxShape.circle,
+            ),
+            child: Icon(icon, color: color, size: 24),
+          ),
+          const SizedBox(height: 10),
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              value,
+              maxLines: 1,
+              style: GoogleFonts.inter(fontSize: 22, fontWeight: FontWeight.w900, color: AppColors.text),
+            ),
+          ),
+          const SizedBox(height: 2),
+          Text(
+            label,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: GoogleFonts.inter(color: AppColors.muted, fontSize: 12, fontWeight: FontWeight.w600),
+          ),
         ],
       ),
     );
@@ -1454,20 +1584,43 @@ class _QuickActionCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      borderRadius: BorderRadius.circular(18),
+      borderRadius: BorderRadius.circular(24),
       child: Container(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(18),
         decoration: _cardDecoration(),
         child: Row(
           children: [
-            Container(width: 50, height: 50, decoration: BoxDecoration(color: color.withOpacity(.12), borderRadius: BorderRadius.circular(14)), child: Icon(icon, color: color, size: 30)),
-            const SizedBox(width: 14),
-            Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Text(title, style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w900, color: AppColors.text)),
-              const SizedBox(height: 3),
-              Text(subtitle, style: const TextStyle(color: AppColors.muted, height: 1.28)),
-            ])),
-            const Icon(Icons.chevron_right, color: AppColors.primary),
+            Container(
+              width: 56,
+              height: 56,
+              decoration: BoxDecoration(color: color.withOpacity(.12), borderRadius: BorderRadius.circular(16)),
+              child: Icon(icon, color: color, size: 28),
+            ),
+            const SizedBox(width: 16),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: GoogleFonts.inter(fontSize: 18, fontWeight: FontWeight.w800, color: AppColors.text),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    subtitle,
+                    style: GoogleFonts.inter(color: AppColors.muted, height: 1.3, fontSize: 13, fontWeight: FontWeight.w500),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(8),
+              decoration: const BoxDecoration(
+                color: AppColors.surfaceLow,
+                shape: BoxShape.circle,
+              ),
+              child: const Icon(Icons.chevron_right, color: AppColors.primary, size: 20),
+            ),
           ],
         ),
       ),
@@ -1536,10 +1689,10 @@ class _SectionHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Container(width: 48, height: 48, decoration: BoxDecoration(color: AppColors.primary.withOpacity(.1), borderRadius: BorderRadius.circular(14)), child: Icon(icon, color: AppColors.primary, size: 28)),
+        Container(width: 48, height: 48, decoration: BoxDecoration(color: AppColors.primary.withOpacity(.1), borderRadius: BorderRadius.circular(14)), child: Icon(icon, color: AppColors.surface, size: 28)),
         const SizedBox(width: 14),
         Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text(title, style: const TextStyle(color: AppColors.primary, fontSize: 21, fontWeight: FontWeight.w900)),
+          Text(title, style: const TextStyle(color: AppColors.textWhite, fontSize: 21, fontWeight: FontWeight.w900)),
           Text(subtitle, style: const TextStyle(color: AppColors.muted, height: 1.25)),
         ])),
       ],
@@ -1734,9 +1887,11 @@ class _ErrorPanel extends StatelessWidget {
 BoxDecoration _cardDecoration() {
   return BoxDecoration(
     color: AppColors.surface,
-    borderRadius: BorderRadius.circular(18),
-    border: Border.all(color: const Color(0xFFE4EAEA)),
-    boxShadow: const [BoxShadow(color: Color(0x0F000000), blurRadius: 14, offset: Offset(0, 6))],
+    borderRadius: BorderRadius.circular(24),
+    border: Border.all(color: AppColors.outline),
+    boxShadow: [
+      BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 20, offset: const Offset(0, 10)),
+    ],
   );
 }
 
